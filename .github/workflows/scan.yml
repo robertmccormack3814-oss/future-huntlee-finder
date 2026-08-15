@@ -2,6 +2,13 @@ name: Scan growth areas
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/scan_growth_areas.py"
+      - "scanner_sources.json"
+      - "requirements.txt"
+      - ".github/workflows/scan.yml"
   schedule:
     - cron: "17 21 * * *"  # 07:17 Australia/Sydney during AEST; GitHub cron uses UTC
 
