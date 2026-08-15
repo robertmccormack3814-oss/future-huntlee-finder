@@ -1,0 +1,12 @@
+{
+  "sitemaps": [
+    {"state":"NSW","url":"https://www.planning.nsw.gov.au/sitemap.xml"},
+    {"state":"QLD","url":"https://www.planning.qld.gov.au/sitemap.xml"},
+    {"state":"VIC","url":"https://www.planning.vic.gov.au/sitemap.xml"}
+  ],
+  "seed_pages": [
+    {"state":"NSW","url":"https://www.planning.nsw.gov.au/plans-your-area/priority-growth-areas-and-precincts"},
+    {"state":"QLD","url":"https://www.planning.qld.gov.au/planning-issues-and-interests/seq-land-supply"},
+    {"state":"VIC","url":"https://www.planning.vic.gov.au/guides-and-resources/strategies-and-initiatives/housing/a-10-year-plan-for-melbournes-greenfields"}
+  ]
+}
