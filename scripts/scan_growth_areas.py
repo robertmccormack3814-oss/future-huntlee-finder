@@ -39,6 +39,21 @@ CATEGORY_TERMS = {
     "utilities": ("water", "wastewater", "sewer", "electricity", "infrastructure contribution")
 }
 
+COMMERCIAL_INFRA_TERMS = {
+    "Town centre / major centre": ("town centre", "city centre", "major centre", "metropolitan centre"),
+    "Shopping centre / retail precinct": ("shopping centre", "retail centre", "retail precinct", "retail hub"),
+    "Local / neighbourhood centres": ("local centre", "neighbourhood centre", "neighborhood centre", "village centre"),
+    "Supermarket / grocery retail": ("supermarket", "grocery", "food retail"),
+    "Commercial / employment precinct": ("commercial precinct", "employment precinct", "employment land", "commercial centre", "commercial core"),
+    "Business park / office precinct": ("business park", "office precinct", "office space", "business precinct"),
+    "Industrial / logistics precinct": ("industrial precinct", "industrial land", "logistics precinct", "warehouse", "freight precinct"),
+    "Health / medical facilities": ("health centre", "medical centre", "health precinct", "medical precinct", "health services"),
+    "Hospital": ("hospital",),
+    "Hospitality / accommodation": ("hotel", "hospitality", "accommodation precinct"),
+    "Childcare / early learning": ("childcare", "child care", "early learning centre"),
+    "Community / civic facilities": ("community centre", "community facility", "civic centre", "library")
+}
+
 STATUS_WORDS = {
     "under construction": 10,
     "construction": 9,
@@ -146,6 +161,15 @@ def extract_largest_number_before(text: str, noun_pattern: str) -> int | None:
 def category_hits(text: str) -> dict[str, bool]:
     lt = text.lower()
     return {k: any(term in lt for term in terms) for k, terms in CATEGORY_TERMS.items()}
+
+
+def extract_commercial_infrastructure(text: str) -> list[str]:
+    lt = text.lower()
+    found = []
+    for label, terms in COMMERCIAL_INFRA_TERMS.items():
+        if any(term in lt for term in terms):
+            found.append(label)
+    return found[:8]
 
 
 def infer_stage(text: str) -> tuple[str, int]:
@@ -270,6 +294,7 @@ def main() -> None:
             scores, total = score_candidate(homes, hits, stage_score, text)
             jobs = extract_largest_number_before(text, r"jobs|employees")
             pop = extract_largest_number_before(text, r"people|residents|population")
+            commercial = extract_commercial_infrastructure(text)
             name = short_name(title, url)
             key = normalise(name)
             candidate = {
@@ -281,6 +306,7 @@ def main() -> None:
                 "homes": homes,
                 "population": pop,
                 "jobs": jobs,
+                "commercial_infrastructure": commercial,
                 "scores": scores,
                 "highlights": summarise_highlights(homes, jobs, pop, hits, stage),
                 "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
@@ -293,7 +319,7 @@ def main() -> None:
             previous = existing.get(key)
             materially_changed = False
             if previous:
-                materially_changed = abs(total - previous.get("score", 0)) >= 5 or homes != previous.get("homes") or stage != previous.get("stage")
+                materially_changed = abs(total - previous.get("score", 0)) >= 5 or homes != previous.get("homes") or stage != previous.get("stage") or commercial != previous.get("commercial_infrastructure", [])
                 previous.update(candidate)
             elif url not in existing_urls:
                 db["candidates"].append(candidate)
