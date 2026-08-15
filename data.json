@@ -1,11 +1,533 @@
 {
-  "updated": "2026-08-16",
-  "weights": {"scale":18,"infrastructure":18,"schools":10,"retail":10,"transport":12,"employment":12,"earliness":10,"certainty":10},
+  "updated": "2026-08-15",
+  "weights": {
+    "scale": 18,
+    "infrastructure": 18,
+    "schools": 10,
+    "retail": 10,
+    "transport": 12,
+    "employment": 12,
+    "earliness": 10,
+    "certainty": 10
+  },
   "candidates": [
-    {"name":"Caboolture West","state":"QLD","region":"Moreton Bay","stage":"Structure plan in force","status":"HIGH CONVICTION","homes":30000,"population":70000,"jobs":17000,"scores":{"scale":10,"infrastructure":8,"schools":10,"retail":8,"transport":7,"employment":9,"earliness":8,"certainty":9},"highlights":["~30,000 homes over ~40 years","~70,000 future residents","~17,000 jobs","4 state primary schools + 2 state high schools in first structure-plan area","Neighbourhood hubs, local centre, parks and active transport"],"risk":"Large supply pipeline may suppress scarcity; transport delivery timing matters.","source":"https://www.planning.qld.gov.au/planning-issues-and-interests/seq-land-supply/caboolture-west","score":87},
-    {"name":"Appin (Part) Precinct","state":"NSW","region":"Greater Macarthur","stage":"Rezoned / early delivery","status":"HIGH CONVICTION","homes":12900,"population":null,"jobs":null,"scores":{"scale":9,"infrastructure":8,"schools":8,"retail":8,"transport":7,"employment":7,"earliness":8,"certainty":9},"highlights":["Up to 12,900 homes","Local centres with shops and services","Schools and emergency services planned in later stages","Early-stage infrastructure funding committed","Part of Greater Macarthur's much larger 40,000-home greenfield program"],"risk":"Road/wastewater capacity and environmental constraints are material sequencing risks.","source":"https://www.planning.nsw.gov.au/plans-your-area/priority-growth-areas-and-precincts/greater-macarthur-growth-area/appin","score":80},
-    {"name":"Greater Macarthur Growth Area","state":"NSW","region":"South-West Sydney","stage":"Multiple precincts progressing","status":"WATCH CLOSELY","homes":58000,"population":null,"jobs":40000,"scores":{"scale":10,"infrastructure":8,"schools":8,"retail":8,"transport":8,"employment":9,"earliness":7,"certainty":8},"highlights":["18,000 urban-renewal homes + up to 40,000 greenfield homes","Up to 40,000 local jobs","Appin, North Appin and Gilead land-release precincts","Transport, centres, parks and services planned at regional scale"],"risk":"Too broad to buy blindly; individual precinct timing and entry price matter much more than the headline growth number.","source":"https://www.planning.nsw.gov.au/plans-your-area/priority-growth-areas-and-precincts/greater-macarthur-growth-area","score":84},
-    {"name":"Western Sydney Aerotropolis / Bradfield","state":"NSW","region":"Western Sydney","stage":"Major infrastructure / masterplans approved","status":"WATCH CLOSELY","homes":10000,"population":null,"jobs":100000,"scores":{"scale":8,"infrastructure":10,"schools":7,"retail":8,"transport":10,"employment":10,"earliness":6,"certainty":9},"highlights":["Bradfield City Centre capacity for ~10,000 homes and ~20,000 jobs","More than 100,000 jobs planned across the Aerotropolis","Western Sydney Airport + Metro + M12 and road upgrades","High-skill employment focus"],"risk":"Land values may already capitalise substantial infrastructure expectations; aircraft noise limits residential locations.","source":"https://www.planning.nsw.gov.au/plans-for-your-area/priority-growth-areas-and-precincts/western-sydney-aerotropolis","score":86},
-    {"name":"Ballarat North future greenfield area","state":"VIC","region":"Ballarat","stage":"State planning pipeline","status":"EARLY WATCH","homes":6000,"population":null,"jobs":600,"scores":{"scale":7,"infrastructure":5,"schools":5,"retail":5,"transport":5,"employment":5,"earliness":10,"certainty":5},"highlights":["Estimated capacity ~6,000 homes","~600 jobs capacity","Listed in Victoria's forward greenfield planning program","Very early stage can create optionality if infrastructure commitments strengthen"],"risk":"Early planning status means infrastructure, timing and final developable capacity remain less certain.","source":"https://www.planning.vic.gov.au/guides-and-resources/strategies-and-initiatives/housing/a-10-year-plan-for-melbournes-greenfields","score":59}
-  ]
+    {
+      "name": "A Shared Responsibility: The plan to begin addressing the housing crisis in NSW",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Construction",
+      "status": "HIGH CONVICTION",
+      "homes": 138000,
+      "population": 1000,
+      "jobs": null,
+      "scores": {
+        "scale": 10,
+        "infrastructure": 10,
+        "schools": 9,
+        "retail": 8,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 4,
+        "certainty": 9
+      },
+      "highlights": [
+        "At least 138,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Construction",
+        "Population signal: approximately 1,000 people",
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/news/a-shared-responsibility-the-plan-to-begin-addressing-the-housing-crisis-in-nsw",
+      "score": 88,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Caboolture West",
+      "state": "QLD",
+      "region": "Moreton Bay",
+      "stage": "Structure plan in force",
+      "status": "HIGH CONVICTION",
+      "homes": 30000,
+      "population": 70000,
+      "jobs": 17000,
+      "scores": {
+        "scale": 10,
+        "infrastructure": 8,
+        "schools": 10,
+        "retail": 8,
+        "transport": 7,
+        "employment": 9,
+        "earliness": 8,
+        "certainty": 9
+      },
+      "highlights": [
+        "~30,000 homes over ~40 years",
+        "~70,000 future residents",
+        "~17,000 jobs",
+        "4 state primary schools + 2 state high schools in first structure-plan area",
+        "Neighbourhood hubs, local centre, parks and active transport"
+      ],
+      "risk": "Large supply pipeline may suppress scarcity; transport delivery timing matters.",
+      "source": "https://www.planning.qld.gov.au/planning-issues-and-interests/seq-land-supply/caboolture-west",
+      "score": 87
+    },
+    {
+      "name": "Biggest planning reforms in a generation to deliver a pipeline of housing supply",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Planning pipeline",
+      "status": "HIGH CONVICTION",
+      "homes": 110000,
+      "population": null,
+      "jobs": null,
+      "scores": {
+        "scale": 10,
+        "infrastructure": 9,
+        "schools": 9,
+        "retail": 8,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 10,
+        "certainty": 4
+      },
+      "highlights": [
+        "At least 110,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Planning pipeline",
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/news/biggest-planning-reforms-generation-deliver-pipeline-housing-supply",
+      "score": 87,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Western Sydney Aerotropolis / Bradfield",
+      "state": "NSW",
+      "region": "Western Sydney",
+      "stage": "Major infrastructure / masterplans approved",
+      "status": "WATCH CLOSELY",
+      "homes": 10000,
+      "population": null,
+      "jobs": 100000,
+      "scores": {
+        "scale": 8,
+        "infrastructure": 10,
+        "schools": 7,
+        "retail": 8,
+        "transport": 10,
+        "employment": 10,
+        "earliness": 6,
+        "certainty": 9
+      },
+      "highlights": [
+        "Bradfield City Centre capacity for ~10,000 homes and ~20,000 jobs",
+        "More than 100,000 jobs planned across the Aerotropolis",
+        "Western Sydney Airport + Metro + M12 and road upgrades",
+        "High-skill employment focus"
+      ],
+      "risk": "Land values may already capitalise substantial infrastructure expectations; aircraft noise limits residential locations.",
+      "source": "https://www.planning.nsw.gov.au/plans-for-your-area/priority-growth-areas-and-precincts/western-sydney-aerotropolis",
+      "score": 86
+    },
+    {
+      "name": "Bankstown",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Adopted",
+      "status": "HIGH CONVICTION",
+      "homes": 14000,
+      "population": null,
+      "jobs": 14300,
+      "scores": {
+        "scale": 8,
+        "infrastructure": 10,
+        "schools": 9,
+        "retail": 8,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 6,
+        "certainty": 8
+      },
+      "highlights": [
+        "At least 14,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Adopted",
+        "Employment signal: approximately 14,300 jobs",
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/bankstown",
+      "score": 85,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Greater Macarthur Growth Area",
+      "state": "NSW",
+      "region": "South-West Sydney",
+      "stage": "Multiple precincts progressing",
+      "status": "WATCH CLOSELY",
+      "homes": 58000,
+      "population": null,
+      "jobs": 40000,
+      "scores": {
+        "scale": 10,
+        "infrastructure": 8,
+        "schools": 8,
+        "retail": 8,
+        "transport": 8,
+        "employment": 9,
+        "earliness": 7,
+        "certainty": 8
+      },
+      "highlights": [
+        "18,000 urban-renewal homes + up to 40,000 greenfield homes",
+        "Up to 40,000 local jobs",
+        "Appin, North Appin and Gilead land-release precincts",
+        "Transport, centres, parks and services planned at regional scale"
+      ],
+      "risk": "Too broad to buy blindly; individual precinct timing and entry price matter much more than the headline growth number.",
+      "source": "https://www.planning.nsw.gov.au/plans-your-area/priority-growth-areas-and-precincts/greater-macarthur-growth-area",
+      "score": 84
+    },
+    {
+      "name": "Hornsby",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Draft",
+      "status": "WATCH CLOSELY",
+      "homes": 6000,
+      "population": null,
+      "jobs": 2900,
+      "scores": {
+        "scale": 7,
+        "infrastructure": 10,
+        "schools": 9,
+        "retail": 8,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 10,
+        "certainty": 5
+      },
+      "highlights": [
+        "At least 6,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Draft",
+        "Employment signal: approximately 2,900 jobs",
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/hornsby",
+      "score": 84,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Low and Mid",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Planning pipeline",
+      "status": "WATCH CLOSELY",
+      "homes": 112000,
+      "population": null,
+      "jobs": null,
+      "scores": {
+        "scale": 10,
+        "infrastructure": 9,
+        "schools": 4,
+        "retail": 8,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 10,
+        "certainty": 4
+      },
+      "highlights": [
+        "At least 112,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Planning pipeline",
+        "Infrastructure signals: town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/the-planning-system/housing/low-and-mid-rise-housing-policy",
+      "score": 82,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "New Bradfield City Centre Master Plan revealed in major step for Western Sydney Aerotropolis",
+      "state": "NSW",
+      "region": "Western Sydney",
+      "stage": "Construction",
+      "status": "WATCH CLOSELY",
+      "homes": 10000,
+      "population": null,
+      "jobs": null,
+      "scores": {
+        "scale": 8,
+        "infrastructure": 9,
+        "schools": 9,
+        "retail": 8,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 4,
+        "certainty": 9
+      },
+      "highlights": [
+        "At least 10,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Construction",
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/news/new-bradfield-city-centre-master-plan-revealed-major-step-western-sydney-aerotropolis",
+      "score": 82,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Homebush",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Draft",
+      "status": "WATCH CLOSELY",
+      "homes": 18000,
+      "population": null,
+      "jobs": 3000,
+      "scores": {
+        "scale": 9,
+        "infrastructure": 9,
+        "schools": 9,
+        "retail": 4,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 10,
+        "certainty": 5
+      },
+      "highlights": [
+        "At least 18,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Draft",
+        "Employment signal: approximately 3,000 jobs",
+        "Infrastructure signals: schools/education, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/parramatta-road/homebush",
+      "score": 82,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Appin (Part) Precinct",
+      "state": "NSW",
+      "region": "Greater Macarthur",
+      "stage": "Rezoned / early delivery",
+      "status": "HIGH CONVICTION",
+      "homes": 12900,
+      "population": null,
+      "jobs": null,
+      "scores": {
+        "scale": 9,
+        "infrastructure": 8,
+        "schools": 8,
+        "retail": 8,
+        "transport": 7,
+        "employment": 7,
+        "earliness": 8,
+        "certainty": 9
+      },
+      "highlights": [
+        "Up to 12,900 homes",
+        "Local centres with shops and services",
+        "Schools and emergency services planned in later stages",
+        "Early-stage infrastructure funding committed",
+        "Part of Greater Macarthur's much larger 40,000-home greenfield program"
+      ],
+      "risk": "Road/wastewater capacity and environmental constraints are material sequencing risks.",
+      "source": "https://www.planning.nsw.gov.au/plans-your-area/priority-growth-areas-and-precincts/greater-macarthur-growth-area/appin",
+      "score": 80
+    },
+    {
+      "name": "NSW Government investing $40.9 million to fast",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Construction",
+      "status": "WATCH CLOSELY",
+      "homes": 18000,
+      "population": null,
+      "jobs": null,
+      "scores": {
+        "scale": 9,
+        "infrastructure": 9,
+        "schools": 9,
+        "retail": 4,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 4,
+        "certainty": 9
+      },
+      "highlights": [
+        "At least 18,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Construction",
+        "Infrastructure signals: schools/education, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/news/nsw-government-investing-409-million-fast-track-critical-infrastructure-high-growth",
+      "score": 80,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "New planning rules to fast track low and mid rise housing",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Planning pipeline",
+      "status": "WATCH CLOSELY",
+      "homes": 377000,
+      "population": null,
+      "jobs": null,
+      "scores": {
+        "scale": 10,
+        "infrastructure": 8,
+        "schools": 4,
+        "retail": 8,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 10,
+        "certainty": 4
+      },
+      "highlights": [
+        "At least 377,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Planning pipeline",
+        "Infrastructure signals: town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/news/new-planning-rules-fast-track-low-and-mid-rise-housing",
+      "score": 80,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Appin",
+      "state": "NSW",
+      "region": "Greater Macarthur",
+      "stage": "Construction",
+      "status": "WATCH CLOSELY",
+      "homes": 12900,
+      "population": null,
+      "jobs": null,
+      "scores": {
+        "scale": 8,
+        "infrastructure": 9,
+        "schools": 9,
+        "retail": 8,
+        "transport": 9,
+        "employment": 4,
+        "earliness": 4,
+        "certainty": 9
+      },
+      "highlights": [
+        "At least 12,900 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Construction",
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/greater-macarthur-growth-area/appin",
+      "score": 76,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Transport Oriented Development",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Approved",
+      "status": "EARLY WATCH",
+      "homes": 170000,
+      "population": null,
+      "jobs": null,
+      "scores": {
+        "scale": 10,
+        "infrastructure": 7,
+        "schools": 4,
+        "retail": 8,
+        "transport": 9,
+        "employment": 4,
+        "earliness": 6,
+        "certainty": 8
+      },
+      "highlights": [
+        "At least 170,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Approved",
+        "Infrastructure signals: town or shopping centres, major transport/road investment, parks/community infrastructure"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/the-planning-system/housing/transport-oriented-development-program/transport-oriented-development",
+      "score": 72,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Transport Oriented Development Program",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Construction",
+      "status": "EARLY WATCH",
+      "homes": 18000,
+      "population": null,
+      "jobs": null,
+      "scores": {
+        "scale": 9,
+        "infrastructure": 7,
+        "schools": 4,
+        "retail": 4,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 4,
+        "certainty": 9
+      },
+      "highlights": [
+        "At least 18,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Construction",
+        "Infrastructure signals: major transport/road investment, employment land/jobs, parks/community infrastructure"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/the-planning-system/housing/transport-oriented-development-program",
+      "score": 71,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Ballarat North future greenfield area",
+      "state": "VIC",
+      "region": "Ballarat",
+      "stage": "State planning pipeline",
+      "status": "EARLY WATCH",
+      "homes": 6000,
+      "population": null,
+      "jobs": 600,
+      "scores": {
+        "scale": 7,
+        "infrastructure": 5,
+        "schools": 5,
+        "retail": 5,
+        "transport": 5,
+        "employment": 5,
+        "earliness": 10,
+        "certainty": 5
+      },
+      "highlights": [
+        "Estimated capacity ~6,000 homes",
+        "~600 jobs capacity",
+        "Listed in Victoria's forward greenfield planning program",
+        "Very early stage can create optionality if infrastructure commitments strengthen"
+      ],
+      "risk": "Early planning status means infrastructure, timing and final developable capacity remain less certain.",
+      "source": "https://www.planning.vic.gov.au/guides-and-resources/strategies-and-initiatives/housing/a-10-year-plan-for-melbournes-greenfields",
+      "score": 59
+    }
+  ],
+  "scanner": {
+    "last_run_utc": "2026-08-15T21:53:58+00:00",
+    "pages_considered": 120,
+    "qualified_pages": 12,
+    "alert_count": 10,
+    "mode": "official-planning-autodiscovery"
+  }
 }

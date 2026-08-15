@@ -1,0 +1,309 @@
+{
+  "generated": "2026-08-15T21:53:58+00:00",
+  "alerts": [
+    {
+      "name": "NSW Government investing $40.9 million to fast",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Construction",
+      "status": "WATCH CLOSELY",
+      "homes": 18000,
+      "population": null,
+      "jobs": null,
+      "scores": {
+        "scale": 9,
+        "infrastructure": 9,
+        "schools": 9,
+        "retail": 4,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 4,
+        "certainty": 9
+      },
+      "highlights": [
+        "At least 18,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Construction",
+        "Infrastructure signals: schools/education, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/news/nsw-government-investing-409-million-fast-track-critical-infrastructure-high-growth",
+      "score": 80,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Low and Mid",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Planning pipeline",
+      "status": "WATCH CLOSELY",
+      "homes": 112000,
+      "population": null,
+      "jobs": null,
+      "scores": {
+        "scale": 10,
+        "infrastructure": 9,
+        "schools": 4,
+        "retail": 8,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 10,
+        "certainty": 4
+      },
+      "highlights": [
+        "At least 112,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Planning pipeline",
+        "Infrastructure signals: town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/the-planning-system/housing/low-and-mid-rise-housing-policy",
+      "score": 82,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "New planning rules to fast track low and mid rise housing",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Planning pipeline",
+      "status": "WATCH CLOSELY",
+      "homes": 377000,
+      "population": null,
+      "jobs": null,
+      "scores": {
+        "scale": 10,
+        "infrastructure": 8,
+        "schools": 4,
+        "retail": 8,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 10,
+        "certainty": 4
+      },
+      "highlights": [
+        "At least 377,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Planning pipeline",
+        "Infrastructure signals: town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/news/new-planning-rules-fast-track-low-and-mid-rise-housing",
+      "score": 80,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "A Shared Responsibility: The plan to begin addressing the housing crisis in NSW",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Construction",
+      "status": "HIGH CONVICTION",
+      "homes": 138000,
+      "population": 1000,
+      "jobs": null,
+      "scores": {
+        "scale": 10,
+        "infrastructure": 10,
+        "schools": 9,
+        "retail": 8,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 4,
+        "certainty": 9
+      },
+      "highlights": [
+        "At least 138,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Construction",
+        "Population signal: approximately 1,000 people",
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/news/a-shared-responsibility-the-plan-to-begin-addressing-the-housing-crisis-in-nsw",
+      "score": 88,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Appin",
+      "state": "NSW",
+      "region": "Greater Macarthur",
+      "stage": "Construction",
+      "status": "WATCH CLOSELY",
+      "homes": 12900,
+      "population": null,
+      "jobs": null,
+      "scores": {
+        "scale": 8,
+        "infrastructure": 9,
+        "schools": 9,
+        "retail": 8,
+        "transport": 9,
+        "employment": 4,
+        "earliness": 4,
+        "certainty": 9
+      },
+      "highlights": [
+        "At least 12,900 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Construction",
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/greater-macarthur-growth-area/appin",
+      "score": 76,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Biggest planning reforms in a generation to deliver a pipeline of housing supply",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Planning pipeline",
+      "status": "HIGH CONVICTION",
+      "homes": 110000,
+      "population": null,
+      "jobs": null,
+      "scores": {
+        "scale": 10,
+        "infrastructure": 9,
+        "schools": 9,
+        "retail": 8,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 10,
+        "certainty": 4
+      },
+      "highlights": [
+        "At least 110,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Planning pipeline",
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/news/biggest-planning-reforms-generation-deliver-pipeline-housing-supply",
+      "score": 87,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "New Bradfield City Centre Master Plan revealed in major step for Western Sydney Aerotropolis",
+      "state": "NSW",
+      "region": "Western Sydney",
+      "stage": "Construction",
+      "status": "WATCH CLOSELY",
+      "homes": 10000,
+      "population": null,
+      "jobs": null,
+      "scores": {
+        "scale": 8,
+        "infrastructure": 9,
+        "schools": 9,
+        "retail": 8,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 4,
+        "certainty": 9
+      },
+      "highlights": [
+        "At least 10,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Construction",
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/news/new-bradfield-city-centre-master-plan-revealed-major-step-western-sydney-aerotropolis",
+      "score": 82,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Hornsby",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Draft",
+      "status": "WATCH CLOSELY",
+      "homes": 6000,
+      "population": null,
+      "jobs": 2900,
+      "scores": {
+        "scale": 7,
+        "infrastructure": 10,
+        "schools": 9,
+        "retail": 8,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 10,
+        "certainty": 5
+      },
+      "highlights": [
+        "At least 6,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Draft",
+        "Employment signal: approximately 2,900 jobs",
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/hornsby",
+      "score": 84,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Bankstown",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Adopted",
+      "status": "HIGH CONVICTION",
+      "homes": 14000,
+      "population": null,
+      "jobs": 14300,
+      "scores": {
+        "scale": 8,
+        "infrastructure": 10,
+        "schools": 9,
+        "retail": 8,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 6,
+        "certainty": 8
+      },
+      "highlights": [
+        "At least 14,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Adopted",
+        "Employment signal: approximately 14,300 jobs",
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/bankstown",
+      "score": 85,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Homebush",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Draft",
+      "status": "WATCH CLOSELY",
+      "homes": 18000,
+      "population": null,
+      "jobs": 3000,
+      "scores": {
+        "scale": 9,
+        "infrastructure": 9,
+        "schools": 9,
+        "retail": 4,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 10,
+        "certainty": 5
+      },
+      "highlights": [
+        "At least 18,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Draft",
+        "Employment signal: approximately 3,000 jobs",
+        "Infrastructure signals: schools/education, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/parramatta-road/homebush",
+      "score": 82,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    }
+  ]
+}
