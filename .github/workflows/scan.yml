@@ -1,0 +1,50 @@
+name: Scan growth areas
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 21 * * *"  # 07:17 Australia/Sydney during AEST; GitHub cron uses UTC
+
+permissions:
+  contents: write
+
+concurrency:
+  group: future-huntlee-scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Scan official planning sources
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
+        run: python scripts/scan_growth_areas.py
+
+      - name: Commit dashboard updates
+        run: |
+          git config user.name "future-huntlee-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data.json latest_alert.json
+          if git diff --cached --quiet; then
+            echo "No dashboard changes"
+          else
+            git commit -m "Refresh growth area scanner"
+            git push
+          fi
