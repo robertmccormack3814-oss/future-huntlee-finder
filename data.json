@@ -12,32 +12,36 @@
   },
   "candidates": [
     {
-      "name": "A Shared Responsibility: The plan to begin addressing the housing crisis in NSW",
+      "name": "Austral And Leppington North",
       "state": "NSW",
       "region": "NSW",
-      "stage": "Construction",
+      "stage": "Draft",
       "status": "HIGH CONVICTION",
-      "homes": 138000,
-      "population": 1000,
+      "homes": 17350,
+      "population": null,
       "jobs": null,
+      "commercial_infrastructure": [
+        "Town centre / major centre",
+        "Local / neighbourhood centres",
+        "Commercial / employment precinct"
+      ],
       "scores": {
-        "scale": 10,
+        "scale": 9,
         "infrastructure": 10,
         "schools": 9,
         "retail": 8,
         "transport": 9,
         "employment": 9,
-        "earliness": 4,
-        "certainty": 9
+        "earliness": 10,
+        "certainty": 5
       },
       "highlights": [
-        "At least 138,000 planned homes/dwellings detected in official planning text",
-        "Planning stage signal: Construction",
-        "Population signal: approximately 1,000 people",
+        "At least 17,350 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Draft",
         "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
       ],
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
-      "source": "https://www.planning.nsw.gov.au/news/a-shared-responsibility-the-plan-to-begin-addressing-the-housing-crisis-in-nsw",
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/south-west-growth-area/austral-and-leppington-north",
       "score": 88,
       "last_checked": "2026-08-15",
       "discovery": "automatic"
@@ -73,63 +77,40 @@
       "score": 87
     },
     {
-      "name": "Biggest planning reforms in a generation to deliver a pipeline of housing supply",
+      "name": "Western Sydney Aerotropolis",
       "state": "NSW",
-      "region": "NSW",
-      "stage": "Planning pipeline",
+      "region": "Western Sydney",
+      "stage": "Approved",
       "status": "HIGH CONVICTION",
-      "homes": 110000,
+      "homes": 10000,
       "population": null,
-      "jobs": null,
+      "jobs": 200000,
       "scores": {
-        "scale": 10,
-        "infrastructure": 9,
+        "scale": 8,
+        "infrastructure": 10,
         "schools": 9,
         "retail": 8,
         "transport": 9,
         "employment": 9,
-        "earliness": 10,
-        "certainty": 4
+        "earliness": 6,
+        "certainty": 8
       },
       "highlights": [
-        "At least 110,000 planned homes/dwellings detected in official planning text",
-        "Planning stage signal: Planning pipeline",
-        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, major utilities/infrastructure servicing"
+        "At least 10,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Approved",
+        "Employment signal: approximately 200,000 jobs",
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
       ],
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
-      "source": "https://www.planning.nsw.gov.au/news/biggest-planning-reforms-generation-deliver-pipeline-housing-supply",
-      "score": 87,
+      "source": "https://www.planning.nsw.gov.au/plans-for-your-area/priority-growth-areas-and-precincts/western-sydney-aerotropolis",
+      "score": 85,
+      "commercial_infrastructure": [
+        "Town centre / major centre",
+        "Local / neighbourhood centres",
+        "Industrial / logistics precinct"
+      ],
       "last_checked": "2026-08-15",
       "discovery": "automatic"
-    },
-    {
-      "name": "Western Sydney Aerotropolis / Bradfield",
-      "state": "NSW",
-      "region": "Western Sydney",
-      "stage": "Major infrastructure / masterplans approved",
-      "status": "WATCH CLOSELY",
-      "homes": 10000,
-      "population": null,
-      "jobs": 100000,
-      "scores": {
-        "scale": 8,
-        "infrastructure": 10,
-        "schools": 7,
-        "retail": 8,
-        "transport": 10,
-        "employment": 10,
-        "earliness": 6,
-        "certainty": 9
-      },
-      "highlights": [
-        "Bradfield City Centre capacity for ~10,000 homes and ~20,000 jobs",
-        "More than 100,000 jobs planned across the Aerotropolis",
-        "Western Sydney Airport + Metro + M12 and road upgrades",
-        "High-skill employment focus"
-      ],
-      "risk": "Land values may already capitalise substantial infrastructure expectations; aircraft noise limits residential locations.",
-      "source": "https://www.planning.nsw.gov.au/plans-for-your-area/priority-growth-areas-and-precincts/western-sydney-aerotropolis",
-      "score": 86
     },
     {
       "name": "Bankstown",
@@ -158,6 +139,46 @@
       ],
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/bankstown",
+      "score": 85,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic",
+      "commercial_infrastructure": [
+        "Town centre / major centre",
+        "Shopping centre / retail precinct",
+        "Hospital"
+      ]
+    },
+    {
+      "name": "Marsden Park",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Planning pipeline",
+      "status": "HIGH CONVICTION",
+      "homes": 10300,
+      "population": null,
+      "jobs": 3000,
+      "commercial_infrastructure": [
+        "Town centre / major centre",
+        "Local / neighbourhood centres"
+      ],
+      "scores": {
+        "scale": 8,
+        "infrastructure": 10,
+        "schools": 9,
+        "retail": 8,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 10,
+        "certainty": 4
+      },
+      "highlights": [
+        "At least 10,300 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Planning pipeline",
+        "Employment signal: approximately 3,000 jobs",
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/north-west-growth-area/marsden-park",
       "score": 85,
       "last_checked": "2026-08-15",
       "discovery": "automatic"
@@ -220,21 +241,97 @@
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/hornsby",
       "score": 84,
       "last_checked": "2026-08-15",
+      "discovery": "automatic",
+      "commercial_infrastructure": [
+        "Town centre / major centre",
+        "Hospital",
+        "Community / civic facilities"
+      ]
+    },
+    {
+      "name": "Macquarie Park",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Master Plan",
+      "status": "WATCH CLOSELY",
+      "homes": 9600,
+      "population": null,
+      "jobs": 100000,
+      "commercial_infrastructure": [
+        "Hospital"
+      ],
+      "scores": {
+        "scale": 7,
+        "infrastructure": 10,
+        "schools": 9,
+        "retail": 8,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 8,
+        "certainty": 7
+      },
+      "highlights": [
+        "At least 9,600 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Master Plan",
+        "Employment signal: approximately 100,000 jobs",
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/macquarie-park",
+      "score": 84,
+      "last_checked": "2026-08-15",
       "discovery": "automatic"
     },
     {
-      "name": "Low and Mid",
+      "name": "Oran Park",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Draft",
+      "status": "WATCH CLOSELY",
+      "homes": 7540,
+      "population": null,
+      "jobs": null,
+      "commercial_infrastructure": [
+        "Town centre / major centre",
+        "Commercial / employment precinct"
+      ],
+      "scores": {
+        "scale": 7,
+        "infrastructure": 10,
+        "schools": 9,
+        "retail": 8,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 10,
+        "certainty": 5
+      },
+      "highlights": [
+        "At least 7,540 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Draft",
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/south-west-growth-area/oran-park",
+      "score": 84,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Alex Avenue",
       "state": "NSW",
       "region": "NSW",
       "stage": "Planning pipeline",
       "status": "WATCH CLOSELY",
-      "homes": 112000,
+      "homes": 6300,
       "population": null,
       "jobs": null,
+      "commercial_infrastructure": [
+        "Town centre / major centre"
+      ],
       "scores": {
-        "scale": 10,
-        "infrastructure": 9,
-        "schools": 4,
+        "scale": 7,
+        "infrastructure": 10,
+        "schools": 9,
         "retail": 8,
         "transport": 9,
         "employment": 9,
@@ -242,43 +339,47 @@
         "certainty": 4
       },
       "highlights": [
-        "At least 112,000 planned homes/dwellings detected in official planning text",
+        "At least 6,300 planned homes/dwellings detected in official planning text",
         "Planning stage signal: Planning pipeline",
-        "Infrastructure signals: town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
       ],
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
-      "source": "https://www.planning.nsw.gov.au/the-planning-system/housing/low-and-mid-rise-housing-policy",
-      "score": 82,
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/north-west-growth-area/alex-avenue",
+      "score": 83,
       "last_checked": "2026-08-15",
       "discovery": "automatic"
     },
     {
-      "name": "New Bradfield City Centre Master Plan revealed in major step for Western Sydney Aerotropolis",
+      "name": "Riverstone",
       "state": "NSW",
-      "region": "Western Sydney",
-      "stage": "Construction",
+      "region": "NSW",
+      "stage": "Planning pipeline",
       "status": "WATCH CLOSELY",
-      "homes": 10000,
+      "homes": 9000,
       "population": null,
       "jobs": null,
+      "commercial_infrastructure": [
+        "Town centre / major centre",
+        "Local / neighbourhood centres"
+      ],
       "scores": {
-        "scale": 8,
-        "infrastructure": 9,
+        "scale": 7,
+        "infrastructure": 10,
         "schools": 9,
         "retail": 8,
         "transport": 9,
         "employment": 9,
-        "earliness": 4,
-        "certainty": 9
+        "earliness": 10,
+        "certainty": 4
       },
       "highlights": [
-        "At least 10,000 planned homes/dwellings detected in official planning text",
-        "Planning stage signal: Construction",
-        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure"
+        "At least 9,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Planning pipeline",
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
       ],
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
-      "source": "https://www.planning.nsw.gov.au/news/new-bradfield-city-centre-master-plan-revealed-major-step-western-sydney-aerotropolis",
-      "score": 82,
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/north-west-growth-area/riverstone",
+      "score": 83,
       "last_checked": "2026-08-15",
       "discovery": "automatic"
     },
@@ -310,6 +411,115 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/parramatta-road/homebush",
       "score": 82,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic",
+      "commercial_infrastructure": [
+        "Hospital"
+      ]
+    },
+    {
+      "name": "Western Sydney Growth Area Sic",
+      "state": "NSW",
+      "region": "Western Sydney",
+      "stage": "Construction",
+      "status": "WATCH CLOSELY",
+      "homes": 377000,
+      "population": null,
+      "jobs": null,
+      "commercial_infrastructure": [
+        "Industrial / logistics precinct",
+        "Health / medical facilities",
+        "Hospital"
+      ],
+      "scores": {
+        "scale": 10,
+        "infrastructure": 9,
+        "schools": 9,
+        "retail": 4,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 4,
+        "certainty": 9
+      },
+      "highlights": [
+        "At least 377,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Construction",
+        "Infrastructure signals: schools/education, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/the-planning-system/infrastructure-funding/special-infrastructure-contributions/western-sydney-growth-area-sic",
+      "score": 82,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Box Hill And Box Hill Industrial",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Construction",
+      "status": "WATCH CLOSELY",
+      "homes": 9600,
+      "population": null,
+      "jobs": 16000,
+      "commercial_infrastructure": [
+        "Town centre / major centre",
+        "Local / neighbourhood centres",
+        "Commercial / employment precinct",
+        "Industrial / logistics precinct"
+      ],
+      "scores": {
+        "scale": 7,
+        "infrastructure": 10,
+        "schools": 9,
+        "retail": 8,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 4,
+        "certainty": 9
+      },
+      "highlights": [
+        "At least 9,600 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Construction",
+        "Employment signal: approximately 16,000 jobs",
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/north-west-growth-area/box-hill-and-box-hill-industrial",
+      "score": 82,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Glenfield",
+      "state": "NSW",
+      "region": "Western Sydney",
+      "stage": "Rezoned",
+      "status": "WATCH CLOSELY",
+      "homes": 7000,
+      "population": null,
+      "jobs": 2900,
+      "commercial_infrastructure": [
+        "Town centre / major centre"
+      ],
+      "scores": {
+        "scale": 7,
+        "infrastructure": 9,
+        "schools": 9,
+        "retail": 8,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 6,
+        "certainty": 8
+      },
+      "highlights": [
+        "At least 7,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Rezoned",
+        "Employment signal: approximately 2,900 jobs",
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/south-west-growth-area/glenfield",
+      "score": 81,
       "last_checked": "2026-08-15",
       "discovery": "automatic"
     },
@@ -344,44 +554,52 @@
       "score": 80
     },
     {
-      "name": "NSW Government investing $40.9 million to fast",
+      "name": "Camellia Rosehill",
       "state": "NSW",
       "region": "NSW",
-      "stage": "Construction",
+      "stage": "Master Plan",
       "status": "WATCH CLOSELY",
-      "homes": 18000,
+      "homes": 10000,
       "population": null,
-      "jobs": null,
+      "jobs": 15400,
+      "commercial_infrastructure": [
+        "Town centre / major centre",
+        "Industrial / logistics precinct"
+      ],
       "scores": {
-        "scale": 9,
+        "scale": 8,
         "infrastructure": 9,
-        "schools": 9,
-        "retail": 4,
+        "schools": 4,
+        "retail": 8,
         "transport": 9,
         "employment": 9,
-        "earliness": 4,
-        "certainty": 9
+        "earliness": 8,
+        "certainty": 7
       },
       "highlights": [
-        "At least 18,000 planned homes/dwellings detected in official planning text",
-        "Planning stage signal: Construction",
-        "Infrastructure signals: schools/education, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+        "At least 10,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Master Plan",
+        "Employment signal: approximately 15,400 jobs",
+        "Infrastructure signals: town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
       ],
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
-      "source": "https://www.planning.nsw.gov.au/news/nsw-government-investing-409-million-fast-track-critical-infrastructure-high-growth",
-      "score": 80,
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/camellia-rosehill",
+      "score": 79,
       "last_checked": "2026-08-15",
       "discovery": "automatic"
     },
     {
-      "name": "New planning rules to fast track low and mid rise housing",
+      "name": "Leppington Town Centre",
       "state": "NSW",
-      "region": "NSW",
-      "stage": "Planning pipeline",
+      "region": "Western Sydney",
+      "stage": "Construction",
       "status": "WATCH CLOSELY",
-      "homes": 377000,
+      "homes": 47000,
       "population": null,
-      "jobs": null,
+      "jobs": 11000,
+      "commercial_infrastructure": [
+        "Town centre / major centre"
+      ],
       "scores": {
         "scale": 10,
         "infrastructure": 8,
@@ -389,17 +607,87 @@
         "retail": 8,
         "transport": 9,
         "employment": 9,
-        "earliness": 10,
-        "certainty": 4
+        "earliness": 4,
+        "certainty": 9
       },
       "highlights": [
-        "At least 377,000 planned homes/dwellings detected in official planning text",
-        "Planning stage signal: Planning pipeline",
+        "At least 47,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Construction",
+        "Employment signal: approximately 11,000 jobs",
         "Infrastructure signals: town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure"
       ],
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
-      "source": "https://www.planning.nsw.gov.au/news/new-planning-rules-fast-track-low-and-mid-rise-housing",
-      "score": 80,
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/leppington/leppington-town-centre",
+      "score": 79,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Orchard Hills",
+      "state": "NSW",
+      "region": "Greater Macarthur",
+      "stage": "Structure Plan",
+      "status": "WATCH CLOSELY",
+      "homes": 5700,
+      "population": null,
+      "jobs": 2100,
+      "commercial_infrastructure": [
+        "Town centre / major centre",
+        "Business park / office precinct"
+      ],
+      "scores": {
+        "scale": 7,
+        "infrastructure": 9,
+        "schools": 4,
+        "retail": 8,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 8,
+        "certainty": 7
+      },
+      "highlights": [
+        "At least 5,700 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Structure Plan",
+        "Employment signal: approximately 2,100 jobs",
+        "Infrastructure signals: town or shopping centres, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/orchard-hills",
+      "score": 77,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Crows Nest",
+      "state": "NSW",
+      "region": "NSW",
+      "stage": "Approved",
+      "status": "WATCH CLOSELY",
+      "homes": 5900,
+      "population": null,
+      "jobs": 2500,
+      "commercial_infrastructure": [
+        "Hospital"
+      ],
+      "scores": {
+        "scale": 7,
+        "infrastructure": 9,
+        "schools": 9,
+        "retail": 4,
+        "transport": 9,
+        "employment": 9,
+        "earliness": 6,
+        "certainty": 8
+      },
+      "highlights": [
+        "At least 5,900 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Approved",
+        "Employment signal: approximately 2,500 jobs",
+        "Infrastructure signals: schools/education, major transport/road investment, employment land/jobs, parks/community infrastructure, major utilities/infrastructure servicing"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/st-leonards-and-crows-nest/crows-nest",
+      "score": 77,
       "last_checked": "2026-08-15",
       "discovery": "automatic"
     },
@@ -431,65 +719,112 @@
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/greater-macarthur-growth-area/appin",
       "score": 76,
       "last_checked": "2026-08-15",
-      "discovery": "automatic"
+      "discovery": "automatic",
+      "commercial_infrastructure": [
+        "Local / neighbourhood centres"
+      ]
     },
     {
-      "name": "Transport Oriented Development",
+      "name": "Glenfield To Macarthur Urban Renewal Precincts",
       "state": "NSW",
-      "region": "NSW",
-      "stage": "Approved",
-      "status": "EARLY WATCH",
-      "homes": 170000,
+      "region": "Greater Macarthur",
+      "stage": "Rezoned",
+      "status": "WATCH CLOSELY",
+      "homes": 7000,
       "population": null,
-      "jobs": null,
+      "jobs": 2900,
+      "commercial_infrastructure": [],
       "scores": {
-        "scale": 10,
-        "infrastructure": 7,
-        "schools": 4,
-        "retail": 8,
+        "scale": 7,
+        "infrastructure": 8,
+        "schools": 9,
+        "retail": 4,
         "transport": 9,
-        "employment": 4,
+        "employment": 9,
         "earliness": 6,
         "certainty": 8
       },
       "highlights": [
-        "At least 170,000 planned homes/dwellings detected in official planning text",
-        "Planning stage signal: Approved",
-        "Infrastructure signals: town or shopping centres, major transport/road investment, parks/community infrastructure"
+        "At least 7,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Rezoned",
+        "Employment signal: approximately 2,900 jobs",
+        "Infrastructure signals: schools/education, major transport/road investment, employment land/jobs, parks/community infrastructure"
       ],
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
-      "source": "https://www.planning.nsw.gov.au/the-planning-system/housing/transport-oriented-development-program/transport-oriented-development",
-      "score": 72,
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/greater-macarthur-growth-area/glenfield-to-macarthur-urban-renewal-precincts",
+      "score": 76,
       "last_checked": "2026-08-15",
       "discovery": "automatic"
     },
     {
-      "name": "Transport Oriented Development Program",
+      "name": "Cherrybrook Precinct",
       "state": "NSW",
       "region": "NSW",
-      "stage": "Construction",
+      "stage": "Funded",
       "status": "EARLY WATCH",
-      "homes": 18000,
+      "homes": 10000,
       "population": null,
       "jobs": null,
+      "commercial_infrastructure": [
+        "Town centre / major centre",
+        "Local / neighbourhood centres",
+        "Hospital",
+        "Community / civic facilities"
+      ],
       "scores": {
-        "scale": 9,
-        "infrastructure": 7,
-        "schools": 4,
-        "retail": 4,
+        "scale": 8,
+        "infrastructure": 8,
+        "schools": 9,
+        "retail": 8,
         "transport": 9,
-        "employment": 9,
+        "employment": 4,
         "earliness": 4,
         "certainty": 9
       },
       "highlights": [
-        "At least 18,000 planned homes/dwellings detected in official planning text",
-        "Planning stage signal: Construction",
-        "Infrastructure signals: major transport/road investment, employment land/jobs, parks/community infrastructure"
+        "At least 10,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Funded",
+        "Infrastructure signals: schools/education, town or shopping centres, major transport/road investment, parks/community infrastructure"
       ],
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
-      "source": "https://www.planning.nsw.gov.au/the-planning-system/housing/transport-oriented-development-program",
-      "score": 71,
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/cherrybrook-precinct",
+      "score": 74,
+      "last_checked": "2026-08-15",
+      "discovery": "automatic"
+    },
+    {
+      "name": "Lowes Creek Maryland",
+      "state": "NSW",
+      "region": "Western Sydney",
+      "stage": "Rezoned",
+      "status": "EARLY WATCH",
+      "homes": 7000,
+      "population": null,
+      "jobs": 2200,
+      "commercial_infrastructure": [
+        "Town centre / major centre",
+        "Local / neighbourhood centres",
+        "Community / civic facilities"
+      ],
+      "scores": {
+        "scale": 7,
+        "infrastructure": 8,
+        "schools": 9,
+        "retail": 8,
+        "transport": 4,
+        "employment": 9,
+        "earliness": 6,
+        "certainty": 8
+      },
+      "highlights": [
+        "At least 7,000 planned homes/dwellings detected in official planning text",
+        "Planning stage signal: Rezoned",
+        "Employment signal: approximately 2,200 jobs",
+        "Infrastructure signals: schools/education, town or shopping centres, employment land/jobs, parks/community infrastructure"
+      ],
+      "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
+      "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/south-west-growth-area/lowes-creek-maryland",
+      "score": 74,
       "last_checked": "2026-08-15",
       "discovery": "automatic"
     },
@@ -524,10 +859,10 @@
     }
   ],
   "scanner": {
-    "last_run_utc": "2026-08-15T21:53:58+00:00",
+    "last_run_utc": "2026-08-15T22:13:04+00:00",
     "pages_considered": 120,
-    "qualified_pages": 12,
-    "alert_count": 10,
-    "mode": "official-planning-autodiscovery"
+    "qualified_pages": 21,
+    "alert_count": 19,
+    "mode": "project-specific-official-planning-autodiscovery"
   }
 }
