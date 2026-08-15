@@ -9,13 +9,16 @@ import requests
 from bs4 import BeautifulSoup
 
 ROOT=Path(__file__).resolve().parents[1]; DATA_PATH=ROOT/'data.json'; SOURCES_PATH=ROOT/'scanner_sources.json'; ALERT_PATH=ROOT/'latest_alert.json'
-UA='FutureHuntleeFinder/1.2 (+GitHub Actions; public planning research)'; TIMEOUT=20; MAX_DISCOVERY_PAGES=120; MIN_HOMES=5000; MIN_INFRA_CATEGORIES=3; ALERT_SCORE=75
+UA='FutureHuntleeFinder/1.3 (+GitHub Actions; public planning research)'; TIMEOUT=20; MAX_DISCOVERY_PAGES=120; MIN_HOMES=5000; MIN_INFRA_CATEGORIES=3; ALERT_SCORE=75
 URL_HINTS=('growth','precinct','greenfield','release','masterplan','master-plan','structure-plan','structureplan','new-community','urban-development')
 REJECT_PATH_PARTS=('/the-planning-system/housing/','low-and-mid-rise','transport-oriented-development-program','housing-policy')
 GENERIC_NAME_TERMS=('government','investing','investment','reform','responsibility','housing crisis','planning rules','fast track','program','policy','announcement','deliver a pipeline','new planning','shared responsibility')
 CATEGORY_TERMS={'schools':('school','education','primary school','high school'),'retail':('town centre','shopping centre','retail','local centre','neighbourhood centre'),'transport':('rail','metro','station','bus','transport','motorway','highway','road upgrade'),'employment':('jobs','employment','business park','industrial','commercial centre'),'parks':('park','open space','sporting','recreation','community facility'),'utilities':('water','wastewater','sewer','electricity','infrastructure contribution')}
 COMMERCIAL_INFRA_TERMS={'Town centre / major centre':('town centre','city centre','major centre','metropolitan centre'),'Shopping centre / retail precinct':('shopping centre','retail centre','retail precinct','retail hub'),'Local / neighbourhood centres':('local centre','neighbourhood centre','neighborhood centre','village centre'),'Supermarket / grocery retail':('supermarket','grocery','food retail'),'Commercial / employment precinct':('commercial precinct','employment precinct','employment land','commercial centre','commercial core'),'Business park / office precinct':('business park','office precinct','office space','business precinct'),'Industrial / logistics precinct':('industrial precinct','industrial land','logistics precinct','warehouse','freight precinct'),'Health / medical facilities':('health centre','medical centre','health precinct','medical precinct','health services'),'Hospital':('hospital',),'Hospitality / accommodation':('hotel','hospitality','accommodation precinct'),'Childcare / early learning':('childcare','child care','early learning centre'),'Community / civic facilities':('community centre','community facility','civic centre','library')}
 STATUS_WORDS={'under construction':10,'construction':9,'contract awarded':9,'funded':9,'approved':8,'rezoned':8,'adopted':8,'structure plan':7,'master plan':7,'planning proposal':6,'draft':5,'investigation':4,'future':3}
+LAND_RELEASE_STAGES=['Not released','Expressions of interest','Coming soon','Pre-release / VIP','Off-the-plan sales','Available now','Registered']
+LAND_RELEASE_PATTERNS=[('Registered',(r'\bregistered land\b',r'\blots? registered\b',r'\bregistered and ready\b')),('Available now',(r'\bland for sale\b',r'\blots? available now\b',r'\bnow selling\b',r'\bavailable lots?\b',r'\bbuy land\b')),('Off-the-plan sales',(r'\boff[- ]the[- ]plan\b',r'\bsecure (?:a )?lot\b',r'\bcontracts? now available\b',r'\bdeposit to secure\b')),('Pre-release / VIP',(r'\bvip release\b',r'\bpre[- ]release\b',r'\bpriority release\b',r'\bpriority access\b')),('Coming soon',(r'\bcoming soon\b',r'\bland release coming\b',r'\bnew release soon\b')),('Expressions of interest',(r'\bexpressions? of interest\b',r'\bregister your interest\b',r'\bregister interest\b',r'\bjoin the waitlist\b'))]
+
 def fetch(url):
  r=requests.get(url,timeout=TIMEOUT,headers={'User-Agent':UA}); r.raise_for_status(); return r.text
 def clean_text(html):
@@ -61,11 +64,33 @@ def infer_stage(text):
  for k,v in STATUS_WORDS.items():
   if k in t and v>best: label,best=k.title(),v
  return label,best
+def infer_land_release(text):
+ t=text.lower()
+ for label,patterns in LAND_RELEASE_PATTERNS:
+  if any(re.search(p,t,re.I) for p in patterns): return label,LAND_RELEASE_STAGES.index(label)
+ return 'Not released',0
+def extract_sales_link(html,base):
+ s=BeautifulSoup(html,'lxml'); best=None
+ for a in s.find_all('a',href=True):
+  href=urljoin(base,a['href']); blob=(a.get_text(' ',strip=True)+' '+href).lower()
+  if any(k in blob for k in ('land for sale','now selling','available land','available lots','register interest','register your interest','sales','buy land','release')):
+   if href.startswith('http'): best=href; break
+ return best
+def extract_release_details(text):
+ out={}
+ m=re.search(r'(?:registration|registered|titles?)\s*(?:expected|anticipated|due|by|in|around)?\s*[:\-]?\s*((?:Q[1-4]\s*)?20\d{2}|(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+20\d{2})',text,re.I)
+ if m: out['expected_registration']=m.group(1)
+ m=re.search(r'(?:deposit|holding deposit)\s*(?:of|from|is|:)?\s*\$([\d,]+)',text,re.I)
+ if m: out['deposit']=int(m.group(1).replace(',',''))
+ sizes=[int(x) for x in re.findall(r'\b(\d{3,4})\s*m(?:²|2|sqm)\b',text,re.I) if 150<=int(x)<=2000]
+ if sizes: out['lot_size_min_sqm']=min(sizes); out['lot_size_max_sqm']=max(sizes)
+ prices=[int(x.replace(',','')) for x in re.findall(r'\$([2-9]\d{2},\d{3})',text)]
+ if prices: out['starting_land_price']=min(prices)
+ return out
 def score_candidate(homes,hits,stage_score):
  scale=10 if homes>=30000 else 9 if homes>=15000 else 8 if homes>=10000 else 7; infra=min(10,4+sum(hits.values())); scores={'scale':scale,'infrastructure':infra,'schools':9 if hits['schools'] else 4,'retail':8 if hits['retail'] else 4,'transport':9 if hits['transport'] else 4,'employment':9 if hits['employment'] else 4,'earliness':10 if stage_score<=5 else 8 if stage_score<=7 else 6 if stage_score<=8 else 4,'certainty':stage_score}; w={'scale':18,'infrastructure':18,'schools':10,'retail':10,'transport':12,'employment':12,'earliness':10,'certainty':10}; return scores,round(sum(scores[k]/10*w[k] for k in w))
 def source_headline(title):
- t=re.sub(r'\s*[-|–]\s*(NSW Planning|Planning NSW|Queensland Government|Victorian Planning).*$', '', title, flags=re.I).strip()
- return t[:150] if t else None
+ t=re.sub(r'\s*[-|–]\s*(NSW Planning|Planning NSW|Queensland Government|Victorian Planning).*$', '', title, flags=re.I).strip(); return t[:150] if t else None
 def project_name(title,url):
  path=urlparse(url).path.rstrip('/'); slug=path.split('/')[-1].replace('-',' ').strip(); candidate=slug.title() if slug else re.sub(r'\s*[-|–].*$','',title).strip()
  if any(x in candidate.lower() for x in GENERIC_NAME_TERMS) or len(candidate)<3:return None
@@ -85,8 +110,9 @@ def summarise(homes,jobs,pop,hits,stage):
 def send_email(alerts):
  host=os.getenv('SMTP_HOST'); user=os.getenv('SMTP_USERNAME'); password=os.getenv('SMTP_PASSWORD'); to=os.getenv('ALERT_EMAIL')
  if not all([host,user,password,to]) or not alerts:return
- msg=EmailMessage(); msg['Subject']=f'Future Huntlee Finder: {len(alerts)} promising update(s)'; msg['From']=user; msg['To']=to; lines=['Future Huntlee Finder found promising planning updates:\n']
- for c in alerts:lines += [f"{c['name']} ({c['state']}) — {c['score']}/100",c.get('subtitle',''),f"Homes: {c.get('homes','—')}",f"Stage: {c.get('stage','—')}",c.get('source',''),'']
+ msg=EmailMessage(); msg['Subject']=f'Future Huntlee Finder: {len(alerts)} important update(s)'; msg['From']=user; msg['To']=to; lines=['Future Huntlee Finder found important updates:\n']
+ for c in alerts:
+  lines += [f"{c['name']} ({c['state']}) — {c['score']}/100",c.get('subtitle',''),f"Land release: {c.get('land_release_status','Unknown')}",f"Homes: {c.get('homes','—')}",f"Stage: {c.get('stage','—')}",c.get('sales_link') or c.get('source',''),'']
  msg.set_content('\n'.join(lines)); ctx=ssl.create_default_context()
  with smtplib.SMTP_SSL(host,int(os.getenv('SMTP_PORT','465')),context=ctx) as smtp:smtp.login(user,password);smtp.send_message(msg)
 def main():
@@ -101,19 +127,22 @@ def main():
  alerts=[];log=[]
  for state,url in dedup[:MAX_DISCOVERY_PAGES]:
   try:
-   title,text=clean_text(fetch(url)); name=project_name(title,url)
+   html=fetch(url); title,text=clean_text(html); name=project_name(title,url)
    if not name:continue
    homes=extract_largest_home_count(text)
    if not homes or homes<MIN_HOMES:continue
    hits=category_hits(text)
    if sum(hits.values())<MIN_INFRA_CATEGORIES:continue
-   stage,ss=infer_stage(text);scores,total=score_candidate(homes,hits,ss);jobs=extract_largest_number_before(text,r'jobs|employees');pop=extract_largest_number_before(text,r'people|residents|population');commercial=extract_commercial_infrastructure(text)
-   c={'name':name,'subtitle':source_headline(title),'state':state,'region':derive_region(text,state),'stage':stage,'status':'HIGH CONVICTION' if total>=85 else 'WATCH CLOSELY' if total>=75 else 'EARLY WATCH','homes':homes,'population':pop,'jobs':jobs,'commercial_infrastructure':commercial,'scores':scores,'highlights':summarise(homes,jobs,pop,hits,stage),'risk':'Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.','source':url,'score':total,'last_checked':datetime.now(timezone.utc).date().isoformat(),'discovery':'automatic'}
-   prev=existing_urls.get(url);changed=False
-   if prev:changed=abs(total-prev.get('score',0))>=5 or homes!=prev.get('homes') or stage!=prev.get('stage') or commercial!=prev.get('commercial_infrastructure',[]);prev.update(c)
-   else:db['candidates'].append(c);existing_urls[url]=c;changed=True
-   if changed and total>=ALERT_SCORE:alerts.append(c)
-   log.append({'name':name,'url':url,'score':total,'homes':homes})
+   stage,ss=infer_stage(text);scores,total=score_candidate(homes,hits,ss);jobs=extract_largest_number_before(text,r'jobs|employees');pop=extract_largest_number_before(text,r'people|residents|population');commercial=extract_commercial_infrastructure(text);release_status,release_idx=infer_land_release(text);release_details=extract_release_details(text);sales_link=extract_sales_link(html,url)
+   c={'name':name,'subtitle':source_headline(title),'state':state,'region':derive_region(text,state),'stage':stage,'status':'HIGH CONVICTION' if total>=85 else 'WATCH CLOSELY' if total>=75 else 'EARLY WATCH','homes':homes,'population':pop,'jobs':jobs,'commercial_infrastructure':commercial,'land_release_status':release_status,'land_release_index':release_idx,'sales_link':sales_link,'scores':scores,'highlights':summarise(homes,jobs,pop,hits,stage),'risk':'Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.','source':url,'score':total,'last_checked':datetime.now(timezone.utc).date().isoformat(),'discovery':'automatic',**release_details}
+   prev=existing_urls.get(url);changed=False;release_breakthrough=False
+   if prev:
+    old_idx=prev.get('land_release_index',0); release_breakthrough=release_idx>=4 and release_idx>old_idx
+    changed=abs(total-prev.get('score',0))>=5 or homes!=prev.get('homes') or stage!=prev.get('stage') or commercial!=prev.get('commercial_infrastructure',[]) or release_idx!=old_idx; prev.update(c)
+   else:
+    db['candidates'].append(c);existing_urls[url]=c;changed=True;release_breakthrough=release_idx>=4
+   if release_breakthrough or (changed and total>=ALERT_SCORE): alerts.append(c)
+   log.append({'name':name,'url':url,'score':total,'homes':homes,'land_release_status':release_status})
   except Exception as e:log.append({'url':url,'error':str(e)[:180]})
- db['updated']=datetime.now(timezone.utc).date().isoformat();db['scanner']={'last_run_utc':datetime.now(timezone.utc).isoformat(timespec='seconds'),'pages_considered':len(dedup[:MAX_DISCOVERY_PAGES]),'qualified_pages':len([x for x in log if 'score' in x]),'alert_count':len(alerts),'mode':'project-title-plus-source-subtitle'};db['candidates'].sort(key=lambda c:c.get('score',0),reverse=True);DATA_PATH.write_text(json.dumps(db,indent=2,ensure_ascii=False)+'\n');ALERT_PATH.write_text(json.dumps({'generated':db['scanner']['last_run_utc'],'alerts':alerts},indent=2,ensure_ascii=False)+'\n');send_email(alerts);print(f"Scanned {len(dedup[:MAX_DISCOVERY_PAGES])} planning URLs; {len(alerts)} alert-worthy change(s).")
+ db['updated']=datetime.now(timezone.utc).date().isoformat();db['scanner']={'last_run_utc':datetime.now(timezone.utc).isoformat(timespec='seconds'),'pages_considered':len(dedup[:MAX_DISCOVERY_PAGES]),'qualified_pages':len([x for x in log if 'score' in x]),'alert_count':len(alerts),'mode':'project-plus-land-release-tracking'};db['candidates'].sort(key=lambda c:c.get('score',0),reverse=True);DATA_PATH.write_text(json.dumps(db,indent=2,ensure_ascii=False)+'\n');ALERT_PATH.write_text(json.dumps({'generated':db['scanner']['last_run_utc'],'alerts':alerts},indent=2,ensure_ascii=False)+'\n');send_email(alerts);print(f"Scanned {len(dedup[:MAX_DISCOVERY_PAGES])} planning URLs; {len(alerts)} important change(s).")
 if __name__=='__main__':main()
