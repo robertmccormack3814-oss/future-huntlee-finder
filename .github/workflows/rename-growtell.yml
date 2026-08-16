@@ -1,0 +1,38 @@
+name: Apply GrowTell branding
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rename-growtell.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebrand:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply GrowTell brand
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace("Future Huntlee Finder — Find Australia's Next Growth Corridor", "GrowTell — Property Growth Scanner")
+          s = s.replace('<div class="brand">Future Huntlee Finder</div>', '<div class="brand">GrowTell <span style="color:#7dd3fc;font-weight:700">· Property Growth Scanner</span></div>')
+          s = s.replace("Find Australia's <span>next Huntlee</span> before everyone else.", "Know where Australia <span>grows next.</span>")
+          s = s.replace('EARLY-STAGE PROPERTY INTELLIGENCE', 'GROWTELL · PROPERTY GROWTH SCANNER')
+          s = s.replace('Future%20Huntlee%20Finder%20Early%20Access', 'GrowTell%20Early%20Access')
+          s = s.replace('Future%20Huntlee%20Finder%20early-access%20list', 'GrowTell%20early-access%20list')
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit branding
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Rebrand site as GrowTell"
+          git push
