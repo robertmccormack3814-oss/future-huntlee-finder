@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - "scripts/scan_growth_areas.py"
+      - "scripts/enrich_manual.py"
       - "scanner_sources.json"
       - "requirements.txt"
       - ".github/workflows/scan.yml"
@@ -35,7 +36,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Scan official planning sources
+      - name: Scan official planning and developer sales sources
         env:
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
@@ -43,6 +44,9 @@ jobs:
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
         run: python scripts/scan_growth_areas.py
+
+      - name: Apply tracked project intelligence
+        run: python scripts/enrich_manual.py
 
       - name: Commit dashboard updates
         run: |
