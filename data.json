@@ -12,6 +12,50 @@
   },
   "candidates": [
     {
+      "name": "Waraba (Caboolture West)",
+      "state": "QLD",
+      "region": "Moreton Bay",
+      "stage": "Planned / infrastructure funded",
+      "status": "HIGH CONVICTION",
+      "homes": 30000,
+      "population": 70000,
+      "jobs": 17000,
+      "scores": {
+        "scale": 10,
+        "infrastructure": 10,
+        "schools": 9,
+        "retail": 9,
+        "transport": 8,
+        "employment": 9,
+        "earliness": 10,
+        "certainty": 8
+      },
+      "highlights": [
+        "~30,000 homes and ~70,000 future residents over the long-term rollout",
+        "~17,000 local jobs planned across retail, commercial, industrial and other employment areas",
+        ">$2 billion proposed/funded infrastructure program including trunk roads, water, sewer, parks and community facilities",
+        "Primary and secondary schools planned alongside community hubs and sporting facilities",
+        "Caboolture River Road enabling works underway, with major funded upgrade construction scheduled from 2027",
+        "Very early city-scale opportunity: first housing is emerging while the wider Waraba build-out remains decades from completion"
+      ],
+      "risk": "Very large future housing supply may limit scarcity. Major transport projects have different commitment levels, and infrastructure timing can lag development. Prefer early, well-connected precincts and scarce lots rather than undifferentiated greenfield stock.",
+      "source": "https://www.planning.qld.gov.au/planning-issues-and-interests/seq-land-supply/caboolture-west",
+      "score": 91,
+      "sales_last_checked": "2026-08-16",
+      "sales_source_status": "developer-site-not-found-yet",
+      "subtitle": "New regional city planned for Moreton Bay with major funded infrastructure rollout",
+      "commercial_infrastructure": [
+        "Town centre / major centre",
+        "Shopping centre / retail precinct",
+        "Local / neighbourhood centres",
+        "Commercial / employment precinct",
+        "Industrial / logistics precinct",
+        "Community / civic facilities"
+      ],
+      "last_checked": "2026-08-16",
+      "discovery": "tracked-manual-enrichment"
+    },
+    {
       "name": "Austral And Leppington North",
       "state": "NSW",
       "region": "NSW",
@@ -85,38 +129,6 @@
       "discovery": "automatic",
       "land_release_status": "Not released",
       "land_release_index": 0,
-      "sales_last_checked": "2026-08-16",
-      "sales_source_status": "developer-site-not-found-yet"
-    },
-    {
-      "name": "Caboolture West",
-      "state": "QLD",
-      "region": "Moreton Bay",
-      "stage": "Structure plan in force",
-      "status": "HIGH CONVICTION",
-      "homes": 30000,
-      "population": 70000,
-      "jobs": 17000,
-      "scores": {
-        "scale": 10,
-        "infrastructure": 8,
-        "schools": 10,
-        "retail": 8,
-        "transport": 7,
-        "employment": 9,
-        "earliness": 8,
-        "certainty": 9
-      },
-      "highlights": [
-        "~30,000 homes over ~40 years",
-        "~70,000 future residents",
-        "~17,000 jobs",
-        "4 state primary schools + 2 state high schools in first structure-plan area",
-        "Neighbourhood hubs, local centre, parks and active transport"
-      ],
-      "risk": "Large supply pipeline may suppress scarcity; transport delivery timing matters.",
-      "source": "https://www.planning.qld.gov.au/planning-issues-and-interests/seq-land-supply/caboolture-west",
-      "score": 87,
       "sales_last_checked": "2026-08-16",
       "sales_source_status": "developer-site-not-found-yet"
     },
@@ -1088,13 +1100,13 @@
     }
   ],
   "scanner": {
-    "last_run_utc": "2026-08-16T21:53:38+00:00",
+    "last_run_utc": "2026-08-16T22:04:13+00:00",
     "pages_considered": 120,
     "qualified_pages": 25,
     "developer_sites_confirmed": 0,
     "priority_lists_found": 0,
     "buyable_projects": 0,
-    "alert_count": 4,
+    "alert_count": 0,
     "mode": "planning-discovery-plus-developer-sales-monitoring"
   }
 }
