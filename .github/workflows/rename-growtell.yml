@@ -21,12 +21,11 @@ jobs:
           from pathlib import Path
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
-          s = s.replace("Future Huntlee Finder — Find Australia's Next Growth Corridor", "GrowTell — Property Growth Scanner")
-          s = s.replace('<div class="brand">Future Huntlee Finder</div>', '<div class="brand">GrowTell <span style="color:#7dd3fc;font-weight:700">· Property Growth Scanner</span></div>')
-          s = s.replace("Find Australia's <span>next Huntlee</span> before everyone else.", "Know where Australia <span>grows next.</span>")
-          s = s.replace('EARLY-STAGE PROPERTY INTELLIGENCE', 'GROWTELL · PROPERTY GROWTH SCANNER')
-          s = s.replace('Future%20Huntlee%20Finder%20Early%20Access', 'GrowTell%20Early%20Access')
-          s = s.replace('Future%20Huntlee%20Finder%20early-access%20list', 'GrowTell%20early-access%20list')
+          s = s.replace('GrowTell — Property Growth Scanner', 'Property Growth Scanner — by GrowTell')
+          s = s.replace('<div class="brand">GrowTell <span style="color:#7dd3fc;font-weight:700">· Property Growth Scanner</span></div>', '<div class="brand">Property Growth Scanner <span style="display:block;color:#7dd3fc;font-size:10px;font-weight:700;margin-top:2px">by GrowTell</span></div>')
+          s = s.replace('GROWTELL · PROPERTY GROWTH SCANNER', 'PROPERTY GROWTH SCANNER · BY GROWTELL')
+          s = s.replace('GrowTell%20Early%20Access', 'Property%20Growth%20Scanner%20Early%20Access')
+          s = s.replace('GrowTell%20early-access%20list', 'Property%20Growth%20Scanner%20by%20GrowTell%20early-access%20list')
           p.write_text(s, encoding='utf-8')
           PY
       - name: Commit branding
@@ -34,5 +33,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git diff --cached --quiet || git commit -m "Rebrand site as GrowTell"
+          git diff --cached --quiet || git commit -m "Make Property Growth Scanner primary brand"
           git push
