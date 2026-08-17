@@ -9,6 +9,7 @@ on:
       - 'privacy.html'
       - 'welcome-email.txt'
       - 'about.html'
+      - 'access.js'
   workflow_dispatch:
 
 permissions:
@@ -19,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Ensure GrowTell branding signup privacy and About navigation
+      - name: Ensure GrowTell branding signup navigation and free Pro split
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -37,7 +38,11 @@ jobs:
           newnote='By joining, you agree to receive GrowTell property-growth emails. You can unsubscribe at any time. <a href="privacy.html">Privacy & email preferences</a>.'
           s=s.replace(oldnote,newnote)
           s=s.replace('Early-access signup is in preview. Submitting opens your email app to register your address.',newnote)
+          s=s.replace('<li>Selected growth-area opportunities</li>','<li>1 fully unlocked featured growth area</li>')
+          s=s.replace('<li>Basic opportunity scoring</li>','<li>Full tracking on the featured opportunity</li>')
+          s=s.replace('Free users get selected discoveries. Pro is planned to unlock the complete radar, priority/VIP monitoring, price changes and faster alerts.','Free users can fully track one featured growth area. Pro unlocks every opportunity, priority/VIP monitoring, price changes and faster alerts.')
           if '<script src="signup.js"></script>' not in s:s=s.replace('</body>','<script src="signup.js"></script></body>')
+          if '<script src="access.js"></script>' not in s:s=s.replace('</body>','<script src="access.js"></script></body>')
           p.write_text(s,encoding='utf-8')
           PY
       - name: Commit commercial layer
@@ -45,5 +50,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git diff --cached --quiet || git commit -m "Add About navigation link"
+          git diff --cached --quiet || git commit -m "Implement one-card free tier and Pro previews"
           git push
