@@ -67,6 +67,7 @@
     children.forEach((card, i) => {
       if (i === 0) {
         if (card.classList.contains('card') && !card.querySelector('.free-featured-badge')) {
+          card.id = 'featured-opportunity';
           const badge = document.createElement('div');
           badge.className = 'free-featured-badge';
           badge.style.cssText = 'display:inline-block;margin:0 0 12px;padding:6px 10px;border-radius:999px;background:#14352f;color:#6ee7b7;font-size:10px;font-weight:900;letter-spacing:.05em';
@@ -89,11 +90,26 @@
     grid.parentNode.insertBefore(note, grid);
   }
 
+  function wireRadarButtons() {
+    document.addEventListener('click', e => {
+      const link = e.target.closest('a');
+      if (!link) return;
+      const isRadarButton = link.dataset.track === 'alert_example' || link.getAttribute('href') === '#radar';
+      if (!isRadarButton) return;
+      const target = document.getElementById('featured-opportunity') || document.querySelector('#grid .card') || document.getElementById('radar');
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth',block:'start'});
+      history.replaceState(null,'','#radar');
+    });
+  }
+
   function init() {
     const grid = document.getElementById('grid');
     if (!grid) return;
     addFreeNote();
     enforceFreeAccess();
+    wireRadarButtons();
     let queued = false;
     new MutationObserver(() => {
       if (queued) return;
