@@ -1,4 +1,4 @@
-name: Apply GrowTell branding
+name: Apply GrowTell branding and signup
 
 on:
   push:
@@ -15,23 +15,42 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Apply GrowTell brand
+      - name: Apply brand and Formspree signup
         run: |
           python - <<'PY'
           from pathlib import Path
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
+
+          # Branding hierarchy
           s = s.replace('GrowTell — Property Growth Scanner', 'Property Growth Scanner — by GrowTell')
           s = s.replace('<div class="brand">GrowTell <span style="color:#7dd3fc;font-weight:700">· Property Growth Scanner</span></div>', '<div class="brand">Property Growth Scanner <span style="display:block;color:#7dd3fc;font-size:10px;font-weight:700;margin-top:2px">by GrowTell</span></div>')
           s = s.replace('GROWTELL · PROPERTY GROWTH SCANNER', 'PROPERTY GROWTH SCANNER · BY GROWTELL')
-          s = s.replace('GrowTell%20Early%20Access', 'Property%20Growth%20Scanner%20Early%20Access')
-          s = s.replace('GrowTell%20early-access%20list', 'Property%20Growth%20Scanner%20by%20GrowTell%20early-access%20list')
+
+          # Real Formspree capture
+          old_form = '<form id="leadForm"><input id="leadEmail" type="email" required placeholder="you@example.com"><button class="cta" type="submit">Join free alerts</button></form>'
+          new_form = '<form id="leadForm" action="https://formspree.io/f/xdenwvjy" method="POST"><input id="leadEmail" name="email" type="email" required placeholder="you@example.com"><input type="hidden" name="source" value="Property Growth Scanner by GrowTell"><input type="hidden" name="interest" value="Free growth-area alerts / Pro waitlist"><button class="cta" type="submit">Join free alerts</button></form>'
+          s = s.replace(old_form, new_form)
+
+          s = s.replace('Early-access signup is in preview. Submitting opens your email app to register your address.', 'Enter your email and we’ll add you to the GrowTell early-access list. No spam.')
+
+          # Replace old mailto handler with AJAX Formspree submission + inline success/error state
+          old_handler = "document.getElementById('leadForm').addEventListener('submit',e=>{e.preventDefault();const email=document.getElementById('leadEmail').value.trim();if(!email)return;document.getElementById('formNote').textContent='Thanks — your email app is opening to register your early-access request.';location.href='mailto:?subject=Property%20Growth%20Scanner%20Early%20Access&body=Please%20add%20'+encodeURIComponent(email)+'%20to%20the%20Property%20Growth%20Scanner%20by%20GrowTell%20early-access%20list.'});"
+          new_handler = "document.getElementById('leadForm').addEventListener('submit',async e=>{e.preventDefault();const form=e.currentTarget,note=document.getElementById('formNote'),button=form.querySelector('button');button.disabled=true;button.textContent='Joining…';note.textContent='Submitting your email…';try{const r=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});if(!r.ok)throw new Error('signup failed');form.reset();note.textContent='✓ You’re on the list. We’ll email you when GrowTell finds important new growth-area opportunities.';button.textContent='Joined ✓';}catch(err){note.textContent='Something went wrong. Please try again in a moment.';button.disabled=false;button.textContent='Join free alerts';}});"
+          if old_handler in s:
+              s = s.replace(old_handler, new_handler)
+          elif "location.href='mailto:" in s:
+              start = s.find("document.getElementById('leadForm').addEventListener('submit'")
+              end = s.find('});', start)
+              if start != -1 and end != -1:
+                  s = s[:start] + new_handler + s[end+3:]
+
           p.write_text(s, encoding='utf-8')
           PY
-      - name: Commit branding
+      - name: Commit brand and signup
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git diff --cached --quiet || git commit -m "Make Property Growth Scanner primary brand"
+          git diff --cached --quiet || git commit -m "Connect real Formspree signup"
           git push
