@@ -8,6 +8,7 @@ on:
       - 'signup.js'
       - 'privacy.html'
       - 'welcome-email.txt'
+      - 'about.html'
   workflow_dispatch:
 
 permissions:
@@ -18,29 +19,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Ensure GrowTell branding signup and privacy notice
+      - name: Ensure GrowTell branding signup privacy and About navigation
         run: |
           python - <<'PY'
           from pathlib import Path
           p=Path('index.html')
           s=p.read_text(encoding='utf-8')
-
           s=s.replace('GrowTell — Property Growth Scanner','Property Growth Scanner — by GrowTell')
           s=s.replace('<div class="brand">GrowTell <span style="color:#7dd3fc;font-weight:700">· Property Growth Scanner</span></div>','<div class="brand">Property Growth Scanner <span style="display:block;color:#7dd3fc;font-size:10px;font-weight:700;margin-top:2px">by GrowTell</span></div>')
           s=s.replace('GROWTELL · PROPERTY GROWTH SCANNER','PROPERTY GROWTH SCANNER · BY GROWTELL')
-
+          if '<a href="about.html">About</a>' not in s:
+              s=s.replace('<div class="navlinks"><a href="#radar">Radar</a>','<div class="navlinks"><a href="about.html">About</a><a href="#radar">Radar</a>')
           old='<form id="leadForm"><input id="leadEmail" type="email" required placeholder="you@example.com"><button class="cta" type="submit">Join free alerts</button></form>'
           new='<form id="leadForm" action="https://formspree.io/f/xdenwvjy" method="POST"><input id="leadEmail" name="email" type="email" required placeholder="you@example.com"><input type="hidden" name="source" value="Property Growth Scanner by GrowTell"><input type="hidden" name="interest" value="Free growth-area alerts / Pro waitlist"><button class="cta" type="submit">Join free alerts</button></form>'
           s=s.replace(old,new)
-
           oldnote='Enter your email and we’ll add you to the GrowTell early-access list. No spam.'
           newnote='By joining, you agree to receive GrowTell property-growth emails. You can unsubscribe at any time. <a href="privacy.html">Privacy & email preferences</a>.'
           s=s.replace(oldnote,newnote)
           s=s.replace('Early-access signup is in preview. Submitting opens your email app to register your address.',newnote)
-
-          if '<script src="signup.js"></script>' not in s:
-              s=s.replace('</body>','<script src="signup.js"></script></body>')
-
+          if '<script src="signup.js"></script>' not in s:s=s.replace('</body>','<script src="signup.js"></script></body>')
           p.write_text(s,encoding='utf-8')
           PY
       - name: Commit commercial layer
@@ -48,5 +45,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git diff --cached --quiet || git commit -m "Add GrowTell privacy notice"
+          git diff --cached --quiet || git commit -m "Add About navigation link"
           git push
