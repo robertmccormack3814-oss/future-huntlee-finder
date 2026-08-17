@@ -7,6 +7,7 @@ on:
     paths:
       - "scripts/scan_growth_areas.py"
       - "scripts/enrich_manual.py"
+      - "scripts/clean_candidates.py"
       - "scanner_sources.json"
       - "requirements.txt"
       - ".github/workflows/scan.yml"
@@ -47,6 +48,9 @@ jobs:
 
       - name: Apply tracked project intelligence
         run: python scripts/enrich_manual.py
+
+      - name: Remove headline and news-article false candidates
+        run: python scripts/clean_candidates.py
 
       - name: Commit dashboard updates
         run: |
