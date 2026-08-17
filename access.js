@@ -1,0 +1,107 @@
+(() => {
+  const PRO_PRICE = '$9.95/month';
+
+  const style = document.createElement('style');
+  style.textContent = `
+    .free-access-note{margin:0 0 16px;padding:14px 16px;border:1px solid #31506e;border-radius:14px;background:#0d1728;color:#cbd5e1;font-size:12px;line-height:1.55}
+    .free-access-note b{color:#fff}
+    .locked-pro-card{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(18,26,48,.98),rgba(10,19,36,.98));border:1px solid #2f4f78;border-radius:18px;padding:18px;min-height:205px}
+    .locked-pro-card:after{content:"";position:absolute;inset:auto -80px -100px auto;width:220px;height:220px;border-radius:50%;background:#2563eb18;filter:blur(4px);pointer-events:none}
+    .locked-pro-top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+    .locked-pro-card h2{margin:0 0 5px;font-size:20px;color:#fff}
+    .locked-pro-meta{color:#94a3b8;font-size:12px;line-height:1.5}
+    .locked-pro-score{min-width:64px;height:64px;border:3px solid #334155;border-radius:50%;display:grid;place-items:center;font-size:18px;font-weight:900;color:#cbd5e1}
+    .locked-badge{display:inline-block;margin-top:10px;padding:5px 9px;border-radius:999px;background:#172554;color:#93c5fd;font-size:10px;font-weight:900;letter-spacing:.05em}
+    .locked-teaser{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:15px 0}
+    .locked-teaser div{padding:10px;border:1px solid #24304c;border-radius:11px;background:#0b1425}
+    .locked-teaser b{display:block;color:#e2e8f0;font-size:13px}.locked-teaser span{display:block;color:#64748b;font-size:10px;margin-top:3px}
+    .locked-copy{color:#94a3b8;font-size:12px;line-height:1.55;margin:12px 0 14px;max-width:750px}
+    .locked-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+    .locked-price{font-size:11px;color:#7dd3fc;font-weight:850}
+    @media(max-width:700px){.locked-teaser{grid-template-columns:1fr 1fr}.locked-pro-score{min-width:58px;height:58px}}
+  `;
+  document.head.appendChild(style);
+
+  const text = (el, selector) => el.querySelector(selector)?.textContent?.trim() || '';
+
+  function makeLockedPreview(card) {
+    const title = text(card,'.title h2') || 'Growth opportunity';
+    const subtitle = text(card,'.subtitle');
+    const meta = text(card,'.meta');
+    const score = text(card,'.score').replace('/100','').trim() || '—';
+    const facts = [...card.querySelectorAll('.facts .fact')].slice(0,3).map(f => ({
+      value: f.querySelector('b')?.textContent?.trim() || '—',
+      label: f.querySelector('span')?.textContent?.trim() || ''
+    }));
+
+    const locked = document.createElement('article');
+    locked.className = 'locked-pro-card';
+    locked.dataset.proLocked = 'true';
+    locked.innerHTML = `
+      <div class="locked-pro-top">
+        <div>
+          <h2>${title}</h2>
+          ${subtitle ? `<div class="locked-pro-meta" style="color:#93c5fd;font-weight:650">${subtitle}</div>` : ''}
+          <div class="locked-pro-meta">${meta}</div>
+          <span class="locked-badge">🔒 PRO OPPORTUNITY</span>
+        </div>
+        <div class="locked-pro-score">${score}</div>
+      </div>
+      <div class="locked-teaser">
+        ${facts.map(f=>`<div><b>${f.value}</b><span>${f.label}</span></div>`).join('')}
+      </div>
+      <div class="locked-copy">The complete project maturity tracker, infrastructure intelligence, commercial plans, land-release monitoring, developer links, price tracking and detailed score breakdown are available with GrowTell Pro.</div>
+      <div class="locked-actions">
+        <a class="cta" href="#alerts" data-track="locked_pro_unlock">Unlock full scanner</a>
+        <span class="locked-price">Investor Pro · ${PRO_PRICE}</span>
+      </div>`;
+    return locked;
+  }
+
+  function enforceFreeAccess() {
+    const grid = document.getElementById('grid');
+    if (!grid) return;
+    const children = [...grid.children];
+    if (!children.length) return;
+
+    children.forEach((card, i) => {
+      if (i === 0) {
+        if (card.classList.contains('card') && !card.querySelector('.free-featured-badge')) {
+          const badge = document.createElement('div');
+          badge.className = 'free-featured-badge';
+          badge.style.cssText = 'display:inline-block;margin:0 0 12px;padding:6px 10px;border-radius:999px;background:#14352f;color:#6ee7b7;font-size:10px;font-weight:900;letter-spacing:.05em';
+          badge.textContent = '✓ FREE FEATURED OPPORTUNITY — FULL ACCESS';
+          card.insertBefore(badge, card.firstChild);
+        }
+        return;
+      }
+      if (card.dataset.proLocked === 'true') return;
+      if (card.classList.contains('card')) card.replaceWith(makeLockedPreview(card));
+    });
+  }
+
+  function addFreeNote() {
+    const grid = document.getElementById('grid');
+    if (!grid || document.querySelector('.free-access-note')) return;
+    const note = document.createElement('div');
+    note.className = 'free-access-note';
+    note.innerHTML = '<b>Free access:</b> Track one featured growth area in full. Other opportunities are shown as Pro previews. GrowTell Pro unlocks the complete Australian scanner and ongoing monitoring.';
+    grid.parentNode.insertBefore(note, grid);
+  }
+
+  function init() {
+    const grid = document.getElementById('grid');
+    if (!grid) return;
+    addFreeNote();
+    enforceFreeAccess();
+    let queued = false;
+    new MutationObserver(() => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(() => { queued = false; enforceFreeAccess(); });
+    }).observe(grid,{childList:true});
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',init);
+  else init();
+})();
