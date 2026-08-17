@@ -10,6 +10,7 @@ on:
       - 'welcome-email.txt'
       - 'about.html'
       - 'access.js'
+      - 'navigation.js'
   workflow_dispatch:
 
 permissions:
@@ -43,6 +44,7 @@ jobs:
           s=s.replace('Free users get selected discoveries. Pro is planned to unlock the complete radar, priority/VIP monitoring, price changes and faster alerts.','Free users can fully track one featured growth area. Pro unlocks every opportunity, priority/VIP monitoring, price changes and faster alerts.')
           if '<script src="signup.js"></script>' not in s:s=s.replace('</body>','<script src="signup.js"></script></body>')
           if '<script src="access.js"></script>' not in s:s=s.replace('</body>','<script src="access.js"></script></body>')
+          if '<script src="navigation.js"></script>' not in s:s=s.replace('</body>','<script src="navigation.js"></script></body>')
           p.write_text(s,encoding='utf-8')
           PY
       - name: Commit commercial layer
@@ -50,5 +52,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git diff --cached --quiet || git commit -m "Implement one-card free tier and Pro previews"
+          git diff --cached --quiet || git commit -m "Fix opportunity radar navigation"
           git push
