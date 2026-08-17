@@ -21,17 +21,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Ensure GrowTell branding signup navigation and free Pro split
+      - name: Repair page and apply GrowTell commercial layer
         run: |
           python - <<'PY'
           from pathlib import Path
+          import re
           p=Path('index.html')
           s=p.read_text(encoding='utf-8')
+
+          # Branding/navigation
           s=s.replace('GrowTell — Property Growth Scanner','Property Growth Scanner — by GrowTell')
           s=s.replace('<div class="brand">GrowTell <span style="color:#7dd3fc;font-weight:700">· Property Growth Scanner</span></div>','<div class="brand">Property Growth Scanner <span style="display:block;color:#7dd3fc;font-size:10px;font-weight:700;margin-top:2px">by GrowTell</span></div>')
           s=s.replace('GROWTELL · PROPERTY GROWTH SCANNER','PROPERTY GROWTH SCANNER · BY GROWTELL')
           if '<a href="about.html">About</a>' not in s:
               s=s.replace('<div class="navlinks"><a href="#radar">Radar</a>','<div class="navlinks"><a href="about.html">About</a><a href="#radar">Radar</a>')
+
+          # Real Formspree form
           old='<form id="leadForm"><input id="leadEmail" type="email" required placeholder="you@example.com"><button class="cta" type="submit">Join free alerts</button></form>'
           new='<form id="leadForm" action="https://formspree.io/f/xdenwvjy" method="POST"><input id="leadEmail" name="email" type="email" required placeholder="you@example.com"><input type="hidden" name="source" value="Property Growth Scanner by GrowTell"><input type="hidden" name="interest" value="Free growth-area alerts / Pro waitlist"><button class="cta" type="submit">Join free alerts</button></form>'
           s=s.replace(old,new)
@@ -39,18 +44,28 @@ jobs:
           newnote='By joining, you agree to receive GrowTell property-growth emails. You can unsubscribe at any time. <a href="privacy.html">Privacy & email preferences</a>.'
           s=s.replace(oldnote,newnote)
           s=s.replace('Early-access signup is in preview. Submitting opens your email app to register your address.',newnote)
+
+          # Free/Pro copy
           s=s.replace('<li>Selected growth-area opportunities</li>','<li>1 fully unlocked featured growth area</li>')
           s=s.replace('<li>Basic opportunity scoring</li>','<li>Full tracking on the featured opportunity</li>')
           s=s.replace('Free users get selected discoveries. Pro is planned to unlock the complete radar, priority/VIP monitoring, price changes and faster alerts.','Free users can fully track one featured growth area. Pro unlocks every opportunity, priority/VIP monitoring, price changes and faster alerts.')
-          if '<script src="signup.js"></script>' not in s:s=s.replace('</body>','<script src="signup.js"></script></body>')
-          if '<script src="access.js"></script>' not in s:s=s.replace('</body>','<script src="access.js"></script></body>')
-          if '<script src="navigation.js"></script>' not in s:s=s.replace('</body>','<script src="navigation.js"></script></body>')
+
+          # Critical repair: remove the corrupted inline leadForm handler and any duplicate tail.
+          # signup.js now owns Formspree submission entirely.
+          s = re.sub(r"document\.getElementById\('leadForm'\)\.addEventListener\('submit'.*?(?=\n</script>)", "", s, flags=re.S)
+
+          # Ensure standalone scripts are loaded exactly once.
+          for src in ['signup.js','access.js','navigation.js']:
+              tag=f'<script src="{src}"></script>'
+              s=s.replace(tag,'')
+              s=s.replace('</body>',tag+'</body>')
+
           p.write_text(s,encoding='utf-8')
           PY
-      - name: Commit commercial layer
+      - name: Commit repaired page
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git diff --cached --quiet || git commit -m "Fix opportunity radar navigation"
+          git diff --cached --quiet || git commit -m "Repair inline JavaScript and restore GrowTell UI"
           git push
