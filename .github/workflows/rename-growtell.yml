@@ -29,37 +29,37 @@ jobs:
           p=Path('index.html')
           s=p.read_text(encoding='utf-8')
 
-          # Branding/navigation
           s=s.replace('GrowTell — Property Growth Scanner','Property Growth Scanner — by GrowTell')
           s=s.replace('<div class="brand">GrowTell <span style="color:#7dd3fc;font-weight:700">· Property Growth Scanner</span></div>','<div class="brand">Property Growth Scanner <span style="display:block;color:#7dd3fc;font-size:10px;font-weight:700;margin-top:2px">by GrowTell</span></div>')
           s=s.replace('GROWTELL · PROPERTY GROWTH SCANNER','PROPERTY GROWTH SCANNER · BY GROWTELL')
           if '<a href="about.html">About</a>' not in s:
               s=s.replace('<div class="navlinks"><a href="#radar">Radar</a>','<div class="navlinks"><a href="about.html">About</a><a href="#radar">Radar</a>')
 
-          # Real Formspree form
           old='<form id="leadForm"><input id="leadEmail" type="email" required placeholder="you@example.com"><button class="cta" type="submit">Join free alerts</button></form>'
-          new='<form id="leadForm" action="https://formspree.io/f/xdenwvjy" method="POST"><input id="leadEmail" name="email" type="email" required placeholder="you@example.com"><input type="hidden" name="source" value="Property Growth Scanner by GrowTell"><input type="hidden" name="interest" value="Free growth-area alerts / Pro waitlist"><button class="cta" type="submit">Join free alerts</button></form>'
+          new='<form id="leadForm" action="https://formspree.io/f/xdenwvjy" method="POST"><input id="leadEmail" name="email" type="email" required placeholder="you@example.com"><input type="hidden" name="source" value="Property Growth Scanner by GrowTell"><input type="hidden" name="interest" value="Free growth-area alerts / Pro early access"><button class="cta" type="submit">Join free alerts</button></form>'
           s=s.replace(old,new)
+          s=s.replace('Free growth-area alerts / Pro waitlist','Free growth-area alerts / Pro early access')
           oldnote='Enter your email and we’ll add you to the GrowTell early-access list. No spam.'
           newnote='By joining, you agree to receive GrowTell property-growth emails. You can unsubscribe at any time. <a href="privacy.html">Privacy & email preferences</a>.'
           s=s.replace(oldnote,newnote)
           s=s.replace('Early-access signup is in preview. Submitting opens your email app to register your address.',newnote)
 
-          # Free/Pro copy
           s=s.replace('<li>Selected growth-area opportunities</li>','<li>1 fully unlocked featured growth area</li>')
           s=s.replace('<li>Basic opportunity scoring</li>','<li>Full tracking on the featured opportunity</li>')
           s=s.replace('Free users get selected discoveries. Pro is planned to unlock the complete radar, priority/VIP monitoring, price changes and faster alerts.','Free users can fully track one featured growth area. Pro unlocks every opportunity, priority/VIP monitoring, price changes and faster alerts.')
 
-          # Critical repair: remove the corrupted inline leadForm handler and any duplicate tail.
-          # signup.js now owns Formspree submission entirely.
-          s = re.sub(r"document\.getElementById\('leadForm'\)\.addEventListener\('submit'.*?(?=\n</script>)", "", s, flags=re.S)
+          # Validation-stage positioning: do not imply Pro can already be purchased.
+          s=s.replace('PRO PREVIEW · $9.95/MONTH','GROWTELL PRO · COMING SOON')
+          s=s.replace('Join Pro waitlist','Join Pro early access')
+          s=s.replace('<div class="coming">PRO</div><h3>Investor Pro</h3><div class="pricebig">$9.95 <span style="font-size:13px;color:#94a3b8">/ month</span></div>', '<div class="coming">COMING SOON</div><h3>Investor Pro</h3><div class="pricebig">$9.95 <span style="font-size:13px;color:#94a3b8">/ month planned launch price</span></div>')
+          s=s.replace('<p>Start free. Upgrade later if the faster alerts and complete intelligence are worth it to you.</p>','<p>Start free today. GrowTell Pro is coming soon, with a planned launch price of $9.95/month.</p>')
+          s=s.replace('The scanner remains free while Pro is being prepared.','The scanner is in early testing. Join free now and you’ll also be on the early-access list for GrowTell Pro.')
 
-          # Ensure standalone scripts are loaded exactly once.
+          s = re.sub(r"document\.getElementById\('leadForm'\)\.addEventListener\('submit'.*?(?=\n</script>)", "", s, flags=re.S)
           for src in ['signup.js','access.js','navigation.js']:
               tag=f'<script src="{src}"></script>'
               s=s.replace(tag,'')
               s=s.replace('</body>',tag+'</body>')
-
           p.write_text(s,encoding='utf-8')
           PY
       - name: Commit repaired page
@@ -67,5 +67,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git diff --cached --quiet || git commit -m "Repair inline JavaScript and restore GrowTell UI"
+          git diff --cached --quiet || git commit -m "Position GrowTell Pro as coming soon"
           git push
