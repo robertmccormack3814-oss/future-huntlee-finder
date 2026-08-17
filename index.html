@@ -13,4 +13,4 @@ const labels={scale:'Housing scale',infrastructure:'Infrastructure',schools:'Sch
   document.addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;const tag=a.dataset.track||(a.href&&a.href.includes('formspree')?'signup':'');if(tag)log('click',tag);});
   window.growTellAnalytics={events:()=>JSON.parse(localStorage.getItem(KEY)||'[]'),clear:()=>localStorage.removeItem(KEY)};
 })();
-</script></body></html>
+</script><script src="signup.js"></script></body></html>
