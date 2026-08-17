@@ -942,13 +942,13 @@
     }
   ],
   "scanner": {
-    "last_run_utc": "2026-08-17T21:54:16+00:00",
+    "last_run_utc": "2026-08-17T22:00:42+00:00",
     "pages_considered": 120,
     "qualified_pages": 25,
     "developer_sites_confirmed": 0,
     "priority_lists_found": 0,
     "buyable_projects": 0,
-    "alert_count": 0,
+    "alert_count": 4,
     "mode": "planning-discovery-plus-developer-sales-monitoring"
   }
 }
