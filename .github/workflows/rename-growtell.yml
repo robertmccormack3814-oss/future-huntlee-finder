@@ -1,4 +1,4 @@
-name: Apply GrowTell branding and signup
+name: Apply GrowTell commercial layer
 
 on:
   push:
@@ -11,46 +11,55 @@ permissions:
   contents: write
 
 jobs:
-  rebrand:
+  commercialise:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Apply brand and Formspree signup
+      - name: Apply brand signup Pro preview and analytics
         run: |
           python - <<'PY'
           from pathlib import Path
-          p = Path('index.html')
-          s = p.read_text(encoding='utf-8')
-
-          # Branding hierarchy
-          s = s.replace('GrowTell — Property Growth Scanner', 'Property Growth Scanner — by GrowTell')
-          s = s.replace('<div class="brand">GrowTell <span style="color:#7dd3fc;font-weight:700">· Property Growth Scanner</span></div>', '<div class="brand">Property Growth Scanner <span style="display:block;color:#7dd3fc;font-size:10px;font-weight:700;margin-top:2px">by GrowTell</span></div>')
-          s = s.replace('GROWTELL · PROPERTY GROWTH SCANNER', 'PROPERTY GROWTH SCANNER · BY GROWTELL')
-
-          # Real Formspree capture
-          old_form = '<form id="leadForm"><input id="leadEmail" type="email" required placeholder="you@example.com"><button class="cta" type="submit">Join free alerts</button></form>'
-          new_form = '<form id="leadForm" action="https://formspree.io/f/xdenwvjy" method="POST"><input id="leadEmail" name="email" type="email" required placeholder="you@example.com"><input type="hidden" name="source" value="Property Growth Scanner by GrowTell"><input type="hidden" name="interest" value="Free growth-area alerts / Pro waitlist"><button class="cta" type="submit">Join free alerts</button></form>'
-          s = s.replace(old_form, new_form)
-
-          s = s.replace('Early-access signup is in preview. Submitting opens your email app to register your address.', 'Enter your email and we’ll add you to the GrowTell early-access list. No spam.')
-
-          # Replace old mailto handler with AJAX Formspree submission + inline success/error state
-          old_handler = "document.getElementById('leadForm').addEventListener('submit',e=>{e.preventDefault();const email=document.getElementById('leadEmail').value.trim();if(!email)return;document.getElementById('formNote').textContent='Thanks — your email app is opening to register your early-access request.';location.href='mailto:?subject=Property%20Growth%20Scanner%20Early%20Access&body=Please%20add%20'+encodeURIComponent(email)+'%20to%20the%20Property%20Growth%20Scanner%20by%20GrowTell%20early-access%20list.'});"
-          new_handler = "document.getElementById('leadForm').addEventListener('submit',async e=>{e.preventDefault();const form=e.currentTarget,note=document.getElementById('formNote'),button=form.querySelector('button');button.disabled=true;button.textContent='Joining…';note.textContent='Submitting your email…';try{const r=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});if(!r.ok)throw new Error('signup failed');form.reset();note.textContent='✓ You’re on the list. We’ll email you when GrowTell finds important new growth-area opportunities.';button.textContent='Joined ✓';}catch(err){note.textContent='Something went wrong. Please try again in a moment.';button.disabled=false;button.textContent='Join free alerts';}});"
-          if old_handler in s:
-              s = s.replace(old_handler, new_handler)
-          elif "location.href='mailto:" in s:
-              start = s.find("document.getElementById('leadForm').addEventListener('submit'")
-              end = s.find('});', start)
-              if start != -1 and end != -1:
-                  s = s[:start] + new_handler + s[end+3:]
-
-          p.write_text(s, encoding='utf-8')
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('GrowTell — Property Growth Scanner','Property Growth Scanner — by GrowTell')
+          s=s.replace('<div class="brand">GrowTell <span style="color:#7dd3fc;font-weight:700">· Property Growth Scanner</span></div>','<div class="brand">Property Growth Scanner <span style="display:block;color:#7dd3fc;font-size:10px;font-weight:700;margin-top:2px">by GrowTell</span></div>')
+          s=s.replace('GROWTELL · PROPERTY GROWTH SCANNER','PROPERTY GROWTH SCANNER · BY GROWTELL')
+          old='<form id="leadForm"><input id="leadEmail" type="email" required placeholder="you@example.com"><button class="cta" type="submit">Join free alerts</button></form>'
+          new='<form id="leadForm" action="https://formspree.io/f/xdenwvjy" method="POST"><input id="leadEmail" name="email" type="email" required placeholder="you@example.com"><input type="hidden" name="source" value="Property Growth Scanner by GrowTell"><input type="hidden" name="interest" value="Free growth-area alerts / Pro waitlist"><button class="cta" type="submit">Join free alerts</button></form>'
+          s=s.replace(old,new)
+          s=s.replace('Early-access signup is in preview. Submitting opens your email app to register your address.','Free alerts include selected major discoveries. Pro will add immediate alerts, complete radar access and release monitoring.')
+          # Add Pro preview banner without hiding current research during validation.
+          marker='<section id="radar"><div class="section-title">'
+          banner='<section style="margin:10px 0 26px;padding:16px;border:1px solid #2563eb;border-radius:15px;background:#0d1b34"><div style="display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap"><div><div class="coming">PRO PREVIEW · $9.95/MONTH</div><b style="font-size:16px">Immediate opportunity + land-release alerts</b><div style="color:#94a3b8;font-size:12px;margin-top:4px">Free users get selected discoveries. Pro is planned to unlock the complete radar, priority/VIP monitoring, price changes and faster alerts.</div></div><a class="cta" href="#alerts" data-track="pro_waitlist">Join Pro waitlist</a></div></section>'+marker
+          if 'PRO PREVIEW · $9.95/MONTH' not in s:s=s.replace(marker,banner)
+          # Professional alert example.
+          pricing='<section id="pricing">'
+          alert='<section style="margin:36px 0"><div class="section-title"><h2>What an alert will look like</h2><p>Designed to tell an investor what changed and why it matters in seconds.</p></div><div style="padding:20px;border:1px solid #31506e;border-radius:18px;background:#0d1728"><div class="coming">GROWTELL OPPORTUNITY ALERT</div><h3 style="font-size:22px;margin:7px 0">New high-scoring growth area detected</h3><div style="color:#cbd5e1;font-size:13px;line-height:1.65"><b>Opportunity score:</b> 91/100 · <b>Signal:</b> infrastructure / land-release change<br><b>What changed:</b> a material project milestone or developer release has been detected.<br><b>Why it matters:</b> subscribers can investigate while the growth area is still early in its development cycle.</div><div style="margin-top:14px"><a class="secondary" href="#radar" data-track="alert_example">View opportunity radar</a></div></div></section>'+pricing
+          if 'What an alert will look like' not in s:s=s.replace(pricing,alert)
+          # Lightweight privacy-friendly local analytics: useful immediately for owner testing; ready for hosted analytics later.
+          script="""<script>
+          (function(){
+            const KEY='growtell_analytics_v1';
+            function log(type,detail){try{const d=JSON.parse(localStorage.getItem(KEY)||'[]');d.push({type,detail:detail||'',path:location.pathname,at:new Date().toISOString()});localStorage.setItem(KEY,JSON.stringify(d.slice(-500)));}catch(e){}}
+            log('page_view',document.referrer||'direct');
+            document.addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;const tag=a.dataset.track||(a.href&&a.href.includes('formspree')?'signup':'');if(tag)log('click',tag);});
+            window.growTellAnalytics={events:()=>JSON.parse(localStorage.getItem(KEY)||'[]'),clear:()=>localStorage.removeItem(KEY)};
+          })();
+          </script>"""
+          if 'growtell_analytics_v1' not in s:s=s.replace('</body>',script+'</body>')
+          # Replace mailto handler if still present.
+          start=s.find("document.getElementById('leadForm').addEventListener('submit'")
+          if start!=-1:
+            end=s.find('});',start)
+            if end!=-1:
+              handler="document.getElementById('leadForm').addEventListener('submit',async e=>{e.preventDefault();const form=e.currentTarget,note=document.getElementById('formNote'),button=form.querySelector('button');button.disabled=true;button.textContent='Joining…';note.textContent='Submitting your email…';try{const r=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});if(!r.ok)throw new Error('signup failed');form.reset();note.textContent='✓ You’re on the list. We’ll email you when GrowTell finds important new opportunities.';button.textContent='Joined ✓';try{const d=JSON.parse(localStorage.getItem('growtell_analytics_v1')||'[]');d.push({type:'signup_success',detail:'early_access',at:new Date().toISOString()});localStorage.setItem('growtell_analytics_v1',JSON.stringify(d.slice(-500)));}catch(x){}}catch(err){note.textContent='Something went wrong. Please try again.';button.disabled=false;button.textContent='Join free alerts';}});"
+              s=s[:start]+handler+s[end+3:]
+          p.write_text(s,encoding='utf-8')
           PY
-      - name: Commit brand and signup
+      - name: Commit commercial layer
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git diff --cached --quiet || git commit -m "Connect real Formspree signup"
+          git diff --cached --quiet || git commit -m "Add GrowTell validation and Pro preview layer"
           git push
