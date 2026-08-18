@@ -31,3 +31,14 @@ document.addEventListener('click', (event) => {
     }, 100);
   }
 });
+
+// Keep the About page discoverable on mobile. The main stylesheet hides
+// non-CTA nav links below 760px, so explicitly restore About at that size.
+function syncMobileAboutLink() {
+  const about = document.querySelector('.navlinks a[href="about.html"]');
+  if (!about) return;
+  about.style.display = window.matchMedia('(max-width: 760px)').matches ? 'inline-block' : '';
+}
+
+syncMobileAboutLink();
+window.addEventListener('resize', syncMobileAboutLink);
