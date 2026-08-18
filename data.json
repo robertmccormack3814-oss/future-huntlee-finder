@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-17",
+  "updated": "2026-08-18",
   "weights": {
     "scale": 18,
     "infrastructure": 18,
@@ -41,7 +41,7 @@
       "risk": "Very large future housing supply may limit scarcity. Major transport projects have different commitment levels, and infrastructure timing can lag development. Prefer early, well-connected precincts and scarce lots rather than undifferentiated greenfield stock.",
       "source": "https://www.planning.qld.gov.au/planning-issues-and-interests/seq-land-supply/caboolture-west",
       "score": 91,
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet",
       "subtitle": "New regional city planned for Moreton Bay with major funded infrastructure rollout",
       "commercial_infrastructure": [
@@ -52,7 +52,7 @@
         "Industrial / logistics precinct",
         "Community / civic facilities"
       ],
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "tracked-manual-enrichment"
     },
     {
@@ -87,10 +87,10 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/south-west-growth-area/austral-and-leppington-north",
       "score": 88,
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "subtitle": "Austral and Leppington North | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -126,10 +126,10 @@
         "Local / neighbourhood centres",
         "Industrial / logistics precinct"
       ],
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "subtitle": "Western Sydney Aerotropolis | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -160,7 +160,7 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/bankstown",
       "score": 85,
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "commercial_infrastructure": [
         "Town centre / major centre",
@@ -168,7 +168,7 @@
         "Hospital"
       ],
       "subtitle": "Bankstown | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -203,10 +203,10 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/north-west-growth-area/marsden-park",
       "score": 85,
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "subtitle": "Marsden Park | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -237,7 +237,7 @@
       "risk": "Too broad to buy blindly; individual precinct timing and entry price matter much more than the headline growth number.",
       "source": "https://www.planning.nsw.gov.au/plans-your-area/priority-growth-areas-and-precincts/greater-macarthur-growth-area",
       "score": 84,
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -268,7 +268,7 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/hornsby",
       "score": 84,
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "commercial_infrastructure": [
         "Town centre / major centre",
@@ -276,7 +276,7 @@
         "Community / civic facilities"
       ],
       "subtitle": "Hornsby | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -310,10 +310,10 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/macquarie-park",
       "score": 84,
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "subtitle": "Macquarie Park | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -347,10 +347,10 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/south-west-growth-area/oran-park",
       "score": 84,
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "subtitle": "Oran Park | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -383,10 +383,10 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/north-west-growth-area/alex-avenue",
       "score": 83,
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "subtitle": "Alex Avenue | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -420,10 +420,10 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/north-west-growth-area/riverstone",
       "score": 83,
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "subtitle": "Riverstone | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -454,13 +454,13 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/parramatta-road/homebush",
       "score": 82,
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "commercial_infrastructure": [
         "Hospital"
       ],
       "subtitle": "Homebush | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -495,10 +495,10 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/the-planning-system/infrastructure-funding/special-infrastructure-contributions/western-sydney-growth-area-sic",
       "score": 82,
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "subtitle": "Western Sydney Growth Areas SIC | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -535,10 +535,10 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/north-west-growth-area/box-hill-and-box-hill-industrial",
       "score": 82,
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "subtitle": "Box Hill and Box Hill Industrial | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -572,10 +572,10 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/south-west-growth-area/glenfield",
       "score": 81,
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "subtitle": "Glenfield | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -607,7 +607,7 @@
       "risk": "Road/wastewater capacity and environmental constraints are material sequencing risks.",
       "source": "https://www.planning.nsw.gov.au/plans-your-area/priority-growth-areas-and-precincts/greater-macarthur-growth-area/appin",
       "score": 80,
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -642,10 +642,10 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/camellia-rosehill",
       "score": 79,
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "subtitle": "Camellia-Rosehill | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -679,10 +679,10 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/leppington/leppington-town-centre",
       "score": 79,
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "subtitle": "Leppington Town Centre | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -717,10 +717,10 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/orchard-hills",
       "score": 77,
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "subtitle": "Orchard Hills | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -754,10 +754,10 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/st-leonards-and-crows-nest/crows-nest",
       "score": 77,
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "subtitle": "Crows Nest | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -787,13 +787,13 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/greater-macarthur-growth-area/appin",
       "score": 76,
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "commercial_infrastructure": [
         "Local / neighbourhood centres"
       ],
       "subtitle": "Appin | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -825,10 +825,10 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/greater-macarthur-growth-area/glenfield-to-macarthur-urban-renewal-precincts",
       "score": 76,
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "subtitle": "Glenfield to Macarthur Urban Renewal Precincts | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -864,10 +864,10 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/cherrybrook-precinct",
       "score": 74,
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "subtitle": "Cherrybrook Precinct | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -903,10 +903,10 @@
       "risk": "Automatically discovered from official planning material. Verify project boundaries, delivery timing, local supply, infrastructure funding and purchase price before investment decisions.",
       "source": "https://www.planning.nsw.gov.au/plans-in-nsw/priority-growth-areas-and-precincts/south-west-growth-area/lowes-creek-maryland",
       "score": 74,
-      "last_checked": "2026-08-17",
+      "last_checked": "2026-08-18",
       "discovery": "automatic",
       "subtitle": "Lowes Creek Maryland | Planning",
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     },
     {
@@ -937,12 +937,12 @@
       "risk": "Early planning status means infrastructure, timing and final developable capacity remain less certain.",
       "source": "https://www.planning.vic.gov.au/guides-and-resources/strategies-and-initiatives/housing/a-10-year-plan-for-melbournes-greenfields",
       "score": 59,
-      "sales_last_checked": "2026-08-17",
+      "sales_last_checked": "2026-08-18",
       "sales_source_status": "developer-site-not-found-yet"
     }
   ],
   "scanner": {
-    "last_run_utc": "2026-08-17T22:00:42+00:00",
+    "last_run_utc": "2026-08-18T21:57:26+00:00",
     "pages_considered": 120,
     "qualified_pages": 25,
     "developer_sites_confirmed": 0,
